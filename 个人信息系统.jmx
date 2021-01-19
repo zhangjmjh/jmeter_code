@@ -1170,7 +1170,7 @@ for(int i=0;i&lt;json_array.length();i++){
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;id&quot;:${userName_id}, &quot;status&quot;:2, &quot;reviewInfo&quot;:&quot;提交资料不合规，请重新提交&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;:${userName_id}, &quot;status&quot;:2, &quot;reviewInfo&quot;:&quot;提交的用户名不合法，请重新提交&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
@@ -1208,7 +1208,7 @@ for(int i=0;i&lt;json_array.length();i++){
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;id&quot;:${review_background_id}, &quot;status&quot;: 2, &quot;reviewInfo&quot;: &quot;提交资料不合规，请重新提交&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;:${review_background_id}, &quot;status&quot;: 2, &quot;reviewInfo&quot;: &quot;提交的背景图片不合规，请重新提交&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
@@ -1246,7 +1246,7 @@ for(int i=0;i&lt;json_array.length();i++){
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;id&quot;:${review_userAvatar_id}, &quot;status&quot;: 2, &quot;reviewInfo&quot;: &quot;提交资料不合规，请重新提交&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;:${review_userAvatar_id}, &quot;status&quot;: 2, &quot;reviewInfo&quot;: &quot;提交的头像不合规，请重新提交&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
@@ -1284,7 +1284,7 @@ for(int i=0;i&lt;json_array.length();i++){
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;id&quot;:${review_personalPro_id}, &quot;status&quot;: 2, &quot;reviewInfo&quot;: &quot;提交资料不合规，请重新提交&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;:${review_personalPro_id}, &quot;status&quot;: 2, &quot;reviewInfo&quot;: &quot;提交的用户简介不合规，请重新提交&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
@@ -1598,7 +1598,7 @@ for(int i=0;i&lt;json_array.length();i++){
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;id&quot;:${userName_id}, &quot;status&quot;:1, &quot;reviewInfo&quot;:&quot;同意审核通过&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;:${userName_id}, &quot;status&quot;:1, &quot;reviewInfo&quot;:&quot;新用户名同意审核通过&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
@@ -1635,7 +1635,7 @@ for(int i=0;i&lt;json_array.length();i++){
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;id&quot;:${review_background_id}, &quot;status&quot;: 1, &quot;reviewInfo&quot;: &quot;同意审核通过&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;:${review_background_id}, &quot;status&quot;: 1, &quot;reviewInfo&quot;: &quot;新背景图片同意审核通过&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
@@ -1672,7 +1672,7 @@ for(int i=0;i&lt;json_array.length();i++){
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;id&quot;:${review_userAvatar_id}, &quot;status&quot;: 1, &quot;reviewInfo&quot;: &quot;同意审核通过&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;:${review_userAvatar_id}, &quot;status&quot;: 1, &quot;reviewInfo&quot;: &quot;新头像同意审核通过&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
@@ -1710,7 +1710,7 @@ for(int i=0;i&lt;json_array.length();i++){
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;id&quot;:${review_personalPro_id}, &quot;status&quot;: 1, &quot;reviewInfo&quot;: &quot;同意审核通过&quot;}</stringProp>
+                      <stringProp name="Argument.value">{&quot;id&quot;:${review_personalPro_id}, &quot;status&quot;: 1, &quot;reviewInfo&quot;: &quot;新用户简介同意审核通过&quot;}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                   </collectionProp>
@@ -5072,7 +5072,14 @@ vars.put(&quot;count&quot;,count+&quot;&quot;);
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&quot;id&quot;:${id},&quot;publishName&quot;:&quot;${userName}&quot;,&quot;textContent&quot;:&quot;疫情反复，最新的mRNA疫苗是个啥？靠谱吗？&quot;,&quot;coverPictureNum&quot;:1,&quot;coverPictureUrl&quot;:&quot;${coverPictureUrl}&quot;,&quot;textPictureUrl&quot;:&quot;${coverPictureUrl}&quot;}</stringProp>
+                    <stringProp name="Argument.value">{&#xd;
+	&quot;id&quot;: ${id},&#xd;
+	&quot;publishName&quot;: &quot;${userName}&quot;,&#xd;
+	&quot;textContent&quot;: &quot;疫情反复，最新的mRNA疫苗是个啥？靠谱吗？&quot;,&#xd;
+	&quot;coverPictureNum&quot;: 1,&#xd;
+	&quot;coverPictureUrl&quot;: &quot;${coverPictureUrl}&quot;,&#xd;
+	&quot;textPictureUrl&quot;: &quot;${coverPictureUrl}&quot;&#xd;
+}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
                 </collectionProp>
