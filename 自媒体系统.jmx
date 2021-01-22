@@ -207,7 +207,7 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="true"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1、发布文章（健康号）" enabled="false"/>
           <hashTree>
@@ -1398,6 +1398,58 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3、发布图集" enabled="false"/>
           <hashTree>
+            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+              <boolProp name="LoopController.continue_forever">true</boolProp>
+              <stringProp name="LoopController.loops">3</stringProp>
+            </LoopController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="上传照片" enabled="true">
+                <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
+                  <collectionProp name="HTTPFileArgs.files">
+                    <elementProp name="C:\Users\Admin\Desktop\APP\APP\fileData\file_app.png" elementType="HTTPFileArg">
+                      <stringProp name="File.path">C:\Users\Admin\Desktop\APP\APP\fileData\file_app.png</stringProp>
+                      <stringProp name="File.paramname">file</stringProp>
+                      <stringProp name="File.mimetype">image/png</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain"></stringProp>
+                <stringProp name="HTTPSampler.port"></stringProp>
+                <stringProp name="HTTPSampler.protocol"></stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+                <stringProp name="HTTPSampler.path">${health}/file/file/uploadfile</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.implementation">Java</stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-228104486">&quot;status&quot;:0,&quot;msg&quot;:&quot;上传成功&quot;</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message">上传图片失败</stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取text_picture_url" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">text_picture_url</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询频道列表" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -2278,7 +2330,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4、发布小视频" enabled="false"/>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="上传视频1" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="上传视频" enabled="true">
               <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
                 <collectionProp name="HTTPFileArgs.files">
                   <elementProp name="C:\Users\Admin\Desktop\APP\APP\fileData\MP4.mp4" elementType="HTTPFileArg">
