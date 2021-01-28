@@ -396,7 +396,7 @@ log.info(pwd);</stringProp>
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="验证码登录" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="验证码登录" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -476,7 +476,7 @@ log.info(pwd);</stringProp>
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="登录后台" enabled="true">
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="登录后台" enabled="false">
           <stringProp name="WhileController.condition">${__javaScript(&quot;${msg}&quot;!=&quot;null&quot; &amp;&amp; ${count}!=20)}</stringProp>
         </WhileController>
         <hashTree>
@@ -602,7 +602,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="登录健康号" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="登录健康号" enabled="false"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登录健康号" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -1328,7 +1328,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4、专题推送-50%" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4、专题推送-50%" enabled="true"/>
           <hashTree>
             <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="登录后台" enabled="true">
               <stringProp name="WhileController.condition">${__javaScript(&quot;${msg}&quot;!=&quot;null&quot; &amp;&amp; ${count}!=20)}</stringProp>
@@ -1485,7 +1485,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询文章列表" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询文章列表" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -1536,103 +1536,54 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 <intProp name="Assertion.test_type">16</intProp>
               </ResponseAssertion>
               <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_id" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_id</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].id</stringProp>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">article</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[0]</stringProp>
                 <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
               </JSONPostProcessor>
               <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_title" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_title</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].title</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_publishId" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_publishId</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].publishId</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_publishName" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_publishName</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].publishName</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_coverPictureUrl" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_coverPictureUrl</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].coverPictureUrl</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_updateId" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_updateId</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].updateId</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_textContent" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_textContent</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].textContent</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_userAvatarUrl" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_userAvatarUrl</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].userAvatarUrl</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_updateName" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_updateName</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].updateName</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_reviewTime" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_reviewTime</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].reviewTime</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_coverPictureNum" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_coverPictureNum</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].coverPictureNum</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_publishTime" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_publishTime</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].publishTime</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_createTime" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_createTime</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].createTime</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_updateTime" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_updateTime</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].updateTime</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_firstChannelName" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_firstChannelName</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].firstChannelName</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_firstChannelId" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">article_firstChannelId</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[1].firstChannelId</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell 后置处理程序" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.json.*;  
+
+//获取接口返回内容
+String response_data = prev.getResponseDataAsString();
+log.info(&quot;111111111111111111111111&quot;);
+
+//将String类型的返回值构造成JSONObject对象
+JSONObject json_data = new JSONObject(response_data);
+log.info(&quot;22222&quot;);
+
+JSONArray json_array = json_data.get(&quot;data&quot;).get(&quot;data&quot;).getJSONArray(&quot;list&quot;);
+log.info(&quot;json_array数组的值为：&quot;+json_array);
+
+JSONObject jsonTemp = json_array.getJSONObject(0);
+log.info(&quot;jsonTemp的值为：&quot;+jsonTemp);
+
+String json = &quot;id&quot;
+
+//
+//for(int i=0;i&lt;jsonTemp.length();i++){
+//	String id = json_array.get(i).getString(&quot;id&quot;);
+//	if()
+//}
+//
+//String contentId=
+</stringProp>
+              </BeanShellPostProcessor>
               <hashTree/>
             </hashTree>
+            <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell 取样器" enabled="false">
+              <stringProp name="BeanShellSampler.query">String article = vars.get(&quot;article&quot;);
+
+log.info(&quot;----------------&quot;+article);</stringProp>
+              <stringProp name="BeanShellSampler.filename"></stringProp>
+              <stringProp name="BeanShellSampler.parameters"></stringProp>
+              <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+            </BeanShellSampler>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加专题推送" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1644,118 +1595,8 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
 	&quot;pushTime&quot;: &quot;&quot;,&#xd;
 	&quot;informationPush&quot;: 1,&#xd;
 	&quot;userOrientation&quot;: 0,&#xd;
-	&quot;contentIdList&quot;: [{&#xd;
-		&quot;title&quot;: &quot;${article_title}&quot;,&#xd;
-		&quot;publishName&quot;: &quot;${article_publishName}&quot;,&#xd;
-		&quot;publishId&quot;: ${article_publishId},&#xd;
-		&quot;source&quot;: null,&#xd;
-		&quot;summary&quot;: &quot;&quot;,&#xd;
-		&quot;firstChannelId&quot;: &quot;${article_firstChannelId}&quot;,&#xd;
-		&quot;firstChannelName&quot;: &quot;${article_firstChannelName}&quot;,&#xd;
-		&quot;secondChannelId&quot;: &quot;&quot;,&#xd;
-		&quot;secondChannelName&quot;: &quot;&quot;,&#xd;
-		&quot;tags&quot;: &quot;https,jpg&quot;,&#xd;
-		&quot;provinceId&quot;: &quot;-1&quot;,&#xd;
-		&quot;cityId&quot;: &quot;&quot;,&#xd;
-		&quot;provinceName&quot;: &quot;全国&quot;,&#xd;
-		&quot;cityName&quot;: &quot;&quot;,&#xd;
-		&quot;coverPictureUrl&quot;: &quot;${article_coverPictureUrl}&quot;,&#xd;
-		&quot;year&quot;: null,&#xd;
-		&quot;month&quot;: null,&#xd;
-		&quot;isTop&quot;: 0,&#xd;
-		&quot;status&quot;: 1,&#xd;
-		&quot;publishTime&quot;: &quot;${article_publishTime}&quot;,&#xd;
-		&quot;createTime&quot;: &quot;${article_createTime}&quot;,&#xd;
-		&quot;updateTime&quot;: &quot;${article_updateTime}&quot;,&#xd;
-		&quot;createId&quot;: ${article_updateId},&#xd;
-		&quot;updateId&quot;: ${article_updateId},&#xd;
-		&quot;deleteFlag&quot;: 0,&#xd;
-		&quot;textContent&quot;: &quot;${article_textContent}&quot;,&#xd;
-		&quot;articleUrl&quot;: null,&#xd;
-		&quot;isImport&quot;: 0,&#xd;
-		&quot;category&quot;: 0,&#xd;
-		&quot;authenticationType&quot;: null,&#xd;
-		&quot;topic&quot;: null,&#xd;
-		&quot;userAvatarUrl&quot;: &quot;${article_userAvatarUrl}&quot;,&#xd;
-		&quot;commentNums&quot;: null,&#xd;
-		&quot;likeNum&quot;: null,&#xd;
-		&quot;readNum&quot;: null,&#xd;
-		&quot;forwardNum&quot;: null,&#xd;
-		&quot;commentReplyNum&quot;: null,&#xd;
-		&quot;atlasTextList&quot;: null,&#xd;
-		&quot;imagesNum&quot;: null,&#xd;
-		&quot;coverPictureNum&quot;: ${article_coverPictureNum},&#xd;
-		&quot;provinceCityName&quot;: null,&#xd;
-		&quot;isCrawl&quot;: 1,&#xd;
-		&quot;isShow&quot;: 1,&#xd;
-		&quot;textPictureUrl&quot;: null,&#xd;
-		&quot;isCollect&quot;: null,&#xd;
-		&quot;isLike&quot;: null,&#xd;
-		&quot;isFocus&quot;: null,&#xd;
-		&quot;focusTime&quot;: null,&#xd;
-		&quot;fansNum&quot;: null,&#xd;
-		&quot;focusNum&quot;: null,&#xd;
-		&quot;activityNum&quot;: null,&#xd;
-		&quot;goldNum&quot;: null,&#xd;
-		&quot;originalName&quot;: &quot;&quot;,&#xd;
-		&quot;coverPictureInfo&quot;: null,&#xd;
-		&quot;textPictureInfo&quot;: null,&#xd;
-		&quot;createName&quot;: null,&#xd;
-		&quot;commentNum&quot;: null,&#xd;
-		&quot;topSite&quot;: null,&#xd;
-		&quot;topChannel&quot;: null,&#xd;
-		&quot;merge&quot;: null,&#xd;
-		&quot;updateName&quot;: &quot;${article_updateName}&quot;,&#xd;
-		&quot;answers&quot;: null,&#xd;
-		&quot;videoType&quot;: null,&#xd;
-		&quot;videoFile&quot;: null,&#xd;
-		&quot;duration&quot;: null,&#xd;
-		&quot;description&quot;: null,&#xd;
-		&quot;statusReview&quot;: 1,&#xd;
-		&quot;remark&quot;: &quot;&quot;,&#xd;
-		&quot;reviewTime&quot;: &quot;${article_reviewTime}&quot;,&#xd;
-		&quot;playUrl&quot;: null,&#xd;
-		&quot;bgUrl&quot;: null,&#xd;
-		&quot;contentNum&quot;: null,&#xd;
-		&quot;resourcesType&quot;: 0,&#xd;
-		&quot;isReleased&quot;: null,&#xd;
-		&quot;userId&quot;: null,&#xd;
-		&quot;userName&quot;: null,&#xd;
-		&quot;realName&quot;: null,&#xd;
-		&quot;userType&quot;: null,&#xd;
-		&quot;personalProfile&quot;: null,&#xd;
-		&quot;userShow&quot;: null,&#xd;
-		&quot;questionsId&quot;: null,&#xd;
-		&quot;mergeQuestionsId&quot;: null,&#xd;
-		&quot;resourceId&quot;: null,&#xd;
-		&quot;resource&quot;: null,&#xd;
-		&quot;pictureSizeType&quot;: null,&#xd;
-		&quot;shortName&quot;: null,&#xd;
-		&quot;isLogo&quot;: null,&#xd;
-		&quot;detailsType&quot;: null,&#xd;
-		&quot;detailsContent&quot;: null,&#xd;
-		&quot;customerId&quot;: null,&#xd;
-		&quot;field1&quot;: null,&#xd;
-		&quot;field2&quot;: null,&#xd;
-		&quot;field3&quot;: null,&#xd;
-		&quot;field4&quot;: null,&#xd;
-		&quot;field5&quot;: null,&#xd;
-		&quot;field6&quot;: null,&#xd;
-		&quot;field7&quot;: null,&#xd;
-		&quot;field8&quot;: null,&#xd;
-		&quot;field9&quot;: null,&#xd;
-		&quot;pquserId&quot;: null,&#xd;
-		&quot;pquserName&quot;: null,&#xd;
-		&quot;pquserAvatarUrl&quot;: null,&#xd;
-		&quot;isNotificationPush&quot;: true,&#xd;
-		&quot;contentId&quot;: &quot;${article_id}&quot;,&#xd;
-		&quot;sort&quot;: 1,&#xd;
-		&quot;noticeColumnPush&quot;: 1&#xd;
-	}]&#xd;
-}&#xd;
-&#xd;
-&#xd;
-</stringProp>
+	&quot;contentIdList&quot;: [{${article}}]&#xd;
+}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
                 </collectionProp>
@@ -1787,7 +1628,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询文章列表" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询文章列表" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -1932,7 +1773,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="5、评论\回复+点赞+关注" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="5、评论\回复+点赞+关注" enabled="false"/>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器（APP）" enabled="true">
               <collectionProp name="HeaderManager.headers">
@@ -2145,7 +1986,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="评论关注内容" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="评论主用户内容" enabled="true">
                 <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                   <collectionProp name="Arguments.arguments">
@@ -2233,7 +2074,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="验证码登录" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="主用户-验证码登录" enabled="true">
                 <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                   <collectionProp name="Arguments.arguments">
@@ -2353,102 +2194,9 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="评论" enabled="false"/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="主用户" enabled="true"/>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="辅助用户-验证码登录" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&#xd;
-	&quot;loginName&quot;: &quot;${auxiliary_account}&quot;,&#xd;
-	&quot;platform&quot;: &quot;&quot;,&#xd;
-	&quot;verifyCode&quot;: &quot;123456&quot;&#xd;
-}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/user/headlineLogin/phoneLogin</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取 token" enabled="true">
-                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                  <stringProp name="RegexExtractor.refname">token</stringProp>
-                  <stringProp name="RegexExtractor.regex">&quot;token&quot;:&quot;(.*?)&quot;</stringProp>
-                  <stringProp name="RegexExtractor.template">$1$</stringProp>
-                  <stringProp name="RegexExtractor.default"></stringProp>
-                  <stringProp name="RegexExtractor.match_number">1</stringProp>
-                </RegexExtractor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="评论" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;essayId&quot;:&quot;${comment_id}&quot;,&quot;essayContent&quot;:&quot;${comment_title}&quot;,&quot;comment&quot;:&quot;写的不错！&quot;}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-                <stringProp name="HTTPSampler.path">${app}/comment/comment/essayComment</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message">评论文章失败</stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取data_id" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">data_id</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="验证码登录" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="主用户-验证码登录" enabled="true">
                 <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                   <collectionProp name="Arguments.arguments">
@@ -2528,44 +2276,6 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 </RegexExtractor>
                 <hashTree/>
               </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询消息通知" enabled="true">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/message/notifyUser/getMessageList?pageNum=1&amp;pageSize=10</stringProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1411323215">&quot;type&quot;:&quot;COMMENT&quot;</stringProp>
-                    <stringProp name="-1128634580">&quot;messageDetail&quot;:&quot;写的不错！&quot;</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                  <stringProp name="ConstantTimer.delay">1500</stringProp>
-                </ConstantTimer>
-                <hashTree/>
-              </hashTree>
-            </hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="点赞评论" enabled="false"/>
-            <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询评论列表" enabled="true">
                 <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -2609,7 +2319,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 </JSONPostProcessor>
                 <hashTree/>
               </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="点赞评论" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="点赞辅助用户评论" enabled="true">
                 <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                   <collectionProp name="Arguments.arguments">
@@ -2650,131 +2360,13 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 </ResponseAssertion>
                 <hashTree/>
               </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="辅助用户-验证码登录" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="回复辅助用户评论" enabled="true">
                 <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&#xd;
-	&quot;loginName&quot;: &quot;${auxiliary_account}&quot;,&#xd;
-	&quot;platform&quot;: &quot;&quot;,&#xd;
-	&quot;verifyCode&quot;: &quot;123456&quot;&#xd;
-}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/user/headlineLogin/phoneLogin</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 id" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">id</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.id</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userId" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">userId</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userId</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userName" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">userName</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userName</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 name" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">name</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.name</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 phoneNumber" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取 token" enabled="true">
-                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                  <stringProp name="RegexExtractor.refname">token</stringProp>
-                  <stringProp name="RegexExtractor.regex">&quot;token&quot;:&quot;(.*?)&quot;</stringProp>
-                  <stringProp name="RegexExtractor.template">$1$</stringProp>
-                  <stringProp name="RegexExtractor.default"></stringProp>
-                  <stringProp name="RegexExtractor.match_number">1</stringProp>
-                </RegexExtractor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询消息通知" enabled="true">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/message/notifyUser/getMessageList?pageNum=1&amp;pageSize=50</stringProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                  <stringProp name="ConstantTimer.delay">1500</stringProp>
-                </ConstantTimer>
-                <hashTree/>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="205839224">&quot;type&quot;:&quot;PRAISE&quot;</stringProp>
-                    <stringProp name="1275375541">&quot;messageDetail&quot;:null</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-              </hashTree>
-            </hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="回复" enabled="false"/>
-            <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="回复评论" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;commentId&quot;:&quot;${data_id}&quot;,&quot;comment&quot;:&quot;收到&quot;,&quot;replyId&quot;:&quot;${data_id}&quot;,&quot;replyType&quot;:&quot;0&quot;,&quot;toUserHeadPortrait&quot;:&quot;${userAvatarUrl}&quot;,&quot;toUserId&quot;:&quot;${id}&quot;,&quot;toUserName&quot;:&quot;${userName}&quot;}&#xd;
+                      <stringProp name="Argument.value">{&quot;commentId&quot;:&quot;${data_id}&quot;,&quot;comment&quot;:&quot;谢谢你的评论&quot;,&quot;replyId&quot;:&quot;${data_id}&quot;,&quot;replyType&quot;:&quot;0&quot;,&quot;toUserHeadPortrait&quot;:&quot;${userAvatarUrl}&quot;,&quot;toUserId&quot;:&quot;${id}&quot;,&quot;toUserName&quot;:&quot;${userName}&quot;}&#xd;
 &#xd;
 &#xd;
 &#xd;
@@ -2801,9 +2393,9 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
                     <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                    <stringProp name="-1768788619">&quot;content&quot;:&quot;收到&quot;</stringProp>
+                    <stringProp name="1793523669">&quot;content&quot;:&quot;谢谢你的评论&quot;</stringProp>
                   </collectionProp>
-                  <stringProp name="Assertion.custom_message">评论文章失败</stringProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
                   <boolProp name="Assertion.assume_success">false</boolProp>
                   <intProp name="Assertion.test_type">16</intProp>
@@ -2850,36 +2442,6 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                   <intProp name="Assertion.test_type">16</intProp>
                 </ResponseAssertion>
                 <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 id" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">id</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.id</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userId" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">userId</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userId</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userName" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">userName</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userName</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 name" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">name</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.name</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 phoneNumber" enabled="false">
-                  <stringProp name="JSONPostProcessor.referenceNames">phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取 token" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">token</stringProp>
@@ -2898,7 +2460,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 <stringProp name="HTTPSampler.port"></stringProp>
                 <stringProp name="HTTPSampler.protocol"></stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/message/notifyUser/getMessageList?pageNum=1&amp;pageSize=50</stringProp>
+                <stringProp name="HTTPSampler.path">${app}/message/notifyUser/getMessageList?pageNum=1&amp;pageSize=10</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2909,249 +2471,12 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
               <hashTree>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                  <stringProp name="ConstantTimer.delay">1500</stringProp>
-                </ConstantTimer>
-                <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
+                    <stringProp name="968506708">&quot;messageDetail&quot;:&quot;谢谢你的评论&quot;</stringProp>
                     <stringProp name="-1411323215">&quot;type&quot;:&quot;COMMENT&quot;</stringProp>
-                    <stringProp name="1298547316">&quot;messageDetail&quot;:&quot;收到&quot;</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-              </hashTree>
-            </hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="消息通知（点赞）" enabled="false"/>
-            <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="辅助用户-验证码登录" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&#xd;
-	&quot;loginName&quot;: &quot;${auxiliary_account}&quot;,&#xd;
-	&quot;platform&quot;: &quot;&quot;,&#xd;
-	&quot;verifyCode&quot;: &quot;123456&quot;&#xd;
-}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/user/headlineLogin/phoneLogin</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 id" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">id</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.id</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userId" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">userId</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userId</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userName" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">userName</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userName</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 name" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">name</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.name</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 phoneNumber" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取 token" enabled="true">
-                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                  <stringProp name="RegexExtractor.refname">token</stringProp>
-                  <stringProp name="RegexExtractor.regex">&quot;token&quot;:&quot;(.*?)&quot;</stringProp>
-                  <stringProp name="RegexExtractor.template">$1$</stringProp>
-                  <stringProp name="RegexExtractor.default"></stringProp>
-                  <stringProp name="RegexExtractor.match_number">1</stringProp>
-                </RegexExtractor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="点赞内容" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;id&quot;:&quot;${like_id}&quot;,&quot;status&quot;:&quot;1&quot;,&quot;type&quot;:&quot;0&quot;}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding">utf8</stringProp>
-                <stringProp name="HTTPSampler.path">${app}/comment/comment/like</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1290416566">&quot;status&quot;:0,&quot;msg&quot;:null,&quot;data&quot;:&quot;点赞成功&quot;</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message">点赞失败</stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                  <stringProp name="ConstantTimer.delay">1000</stringProp>
-                </ConstantTimer>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="验证码登录" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&#xd;
-	&quot;loginName&quot;: &quot;18138214088&quot;,&#xd;
-	&quot;platform&quot;: &quot;&quot;,&#xd;
-	&quot;verifyCode&quot;: &quot;123456&quot;&#xd;
-}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/user/headlineLogin/phoneLogin</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 id" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">id</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.id</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userId" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">userId</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userId</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userName" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">userName</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userName</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 name" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">name</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.name</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 phoneNumber" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取 token" enabled="true">
-                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                  <stringProp name="RegexExtractor.refname">token</stringProp>
-                  <stringProp name="RegexExtractor.regex">&quot;token&quot;:&quot;(.*?)&quot;</stringProp>
-                  <stringProp name="RegexExtractor.template">$1$</stringProp>
-                  <stringProp name="RegexExtractor.default"></stringProp>
-                  <stringProp name="RegexExtractor.match_number">1</stringProp>
-                </RegexExtractor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询消息通知" enabled="true">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/message/notifyUser/getMessageList?pageNum=1&amp;pageSize=50</stringProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="205839224">&quot;type&quot;:&quot;PRAISE&quot;</stringProp>
-                    <stringProp name="-767255573">,&quot;messageDetail&quot;:nul</stringProp>
+                    <stringProp name="-782828084">,&quot;type&quot;:&quot;PRAISE&quot;</stringProp>
+                    <stringProp name="1275375541">&quot;messageDetail&quot;:null</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -3161,252 +2486,6 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
                   <stringProp name="ConstantTimer.delay">1500</stringProp>
-                </ConstantTimer>
-                <hashTree/>
-              </hashTree>
-            </hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="消息通知（关注）" enabled="false"/>
-            <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="辅助用户-验证码登录" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&#xd;
-	&quot;loginName&quot;: &quot;${auxiliary_account}&quot;,&#xd;
-	&quot;platform&quot;: &quot;&quot;,&#xd;
-	&quot;verifyCode&quot;: &quot;123456&quot;&#xd;
-}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/user/headlineLogin/phoneLogin</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取auxiliary_userName" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">auxiliary_userName</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userName</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取 token" enabled="true">
-                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                  <stringProp name="RegexExtractor.refname">token</stringProp>
-                  <stringProp name="RegexExtractor.regex">&quot;token&quot;:&quot;(.*?)&quot;</stringProp>
-                  <stringProp name="RegexExtractor.template">$1$</stringProp>
-                  <stringProp name="RegexExtractor.default"></stringProp>
-                  <stringProp name="RegexExtractor.match_number">1</stringProp>
-                </RegexExtractor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="关注" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;foucsUserId&quot;:&quot;${attention_id}&quot;}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding">utf8</stringProp>
-                <stringProp name="HTTPSampler.path">${app}/user/foucsuser/addfoucs</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-2141929965">&quot;msg&quot;:&quot;关注成功&quot;</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message">点赞失败</stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="验证码登录" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&#xd;
-	&quot;loginName&quot;: &quot;18138214088&quot;,&#xd;
-	&quot;platform&quot;: &quot;&quot;,&#xd;
-	&quot;verifyCode&quot;: &quot;123456&quot;&#xd;
-}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/user/headlineLogin/phoneLogin</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 id" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">id</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.id</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userId" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">userId</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userId</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 userName" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">userName</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.userName</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 name" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">name</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.name</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 phoneNumber" enabled="true">
-                  <stringProp name="JSONPostProcessor.referenceNames">phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.userInfo.phoneNumber</stringProp>
-                  <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-                </JSONPostProcessor>
-                <hashTree/>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取 token" enabled="true">
-                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                  <stringProp name="RegexExtractor.refname">token</stringProp>
-                  <stringProp name="RegexExtractor.regex">&quot;token&quot;:&quot;(.*?)&quot;</stringProp>
-                  <stringProp name="RegexExtractor.template">$1$</stringProp>
-                  <stringProp name="RegexExtractor.default"></stringProp>
-                  <stringProp name="RegexExtractor.match_number">1</stringProp>
-                </RegexExtractor>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询消息通知" enabled="true">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/message/notifyUser/getMessageList?pageNum=1&amp;pageSize=50</stringProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1941342290">&quot;type&quot;:&quot;ATTENTION&quot;</stringProp>
-                    <stringProp name="-2084952161">&quot;messageDetail&quot;:&quot;关注了你&quot;</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                  <stringProp name="ConstantTimer.delay">1500</stringProp>
-                </ConstantTimer>
-                <hashTree/>
-              </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询粉丝列表" enabled="true">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${app}/user/foucsuser/getFanList?foucsUserId=3601&amp;pageNum=1&amp;pageSize=50</stringProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1152726931">&quot;status&quot;:0,&quot;msg&quot;:&quot;查询当前用户的粉丝列表成功&quot;</stringProp>
-                    <stringProp name="-738448803">&quot;userName&quot;:&quot;${auxiliary_userName}&quot;</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">2</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                  <stringProp name="ConstantTimer.delay">1000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
