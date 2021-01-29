@@ -1542,6 +1542,12 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
               </JSONPostProcessor>
               <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取article_id" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">article_id</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[0].id</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
               <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell 后置处理程序" enabled="true">
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
@@ -1559,32 +1565,27 @@ log.info(&quot;22222&quot;);
 JSONArray json_array = json_data.get(&quot;data&quot;).get(&quot;data&quot;).getJSONArray(&quot;list&quot;);
 log.info(&quot;json_array数组的值为：&quot;+json_array);
 
-JSONObject jsonTemp = json_array.getJSONObject(0);
+JSONObject jsonTemp = json_array.getJSONObject(1);
+
+// 把contentId :321313 放到 jsonTemp里面
+jsonTemp.put(&quot;contentId&quot;,&quot;${article_id}&quot;);
+jsonTemp.put(&quot;sort&quot;,1);
+jsonTemp.put(&quot;noticeColumnPush&quot;,1);
+jsonTemp.put(&quot;isNotificationPush&quot;,true);
+
 log.info(&quot;jsonTemp的值为：&quot;+jsonTemp);
 
-String json = &quot;id&quot;
+vars.putObject(&quot;jsonTemp&quot;,jsonTemp);
 
-//
-//for(int i=0;i&lt;jsonTemp.length();i++){
-//	String id = json_array.get(i).getString(&quot;id&quot;);
-//	if()
-//}
-//
-//String contentId=
+
+
+
+
 </stringProp>
               </BeanShellPostProcessor>
               <hashTree/>
             </hashTree>
-            <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell 取样器" enabled="false">
-              <stringProp name="BeanShellSampler.query">String article = vars.get(&quot;article&quot;);
-
-log.info(&quot;----------------&quot;+article);</stringProp>
-              <stringProp name="BeanShellSampler.filename"></stringProp>
-              <stringProp name="BeanShellSampler.parameters"></stringProp>
-              <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
-            </BeanShellSampler>
-            <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加专题推送" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加专题推送" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -1595,7 +1596,7 @@ log.info(&quot;----------------&quot;+article);</stringProp>
 	&quot;pushTime&quot;: &quot;&quot;,&#xd;
 	&quot;informationPush&quot;: 1,&#xd;
 	&quot;userOrientation&quot;: 0,&#xd;
-	&quot;contentIdList&quot;: [{${article}}]&#xd;
+	&quot;contentIdList&quot;: [${jsonTemp}]&#xd;
 }</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -1605,7 +1606,7 @@ log.info(&quot;----------------&quot;+article);</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${app}/comment/comment/replyComment</stringProp>
+              <stringProp name="HTTPSampler.path">${admin}/message/notifyController/insertNewsPush</stringProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

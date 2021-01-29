@@ -32,7 +32,7 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell 取样器" enabled="false">
+        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell 取样器" enabled="true">
           <stringProp name="BeanShellSampler.query">int a=2;
 String user=&quot;tester&quot;;
 String[] users=new String[]{&quot;tester1&quot;,&quot;tetster2&quot;};
@@ -56,6 +56,11 @@ if(list.size()&gt;0){
 }else if(list.size()&lt;=0){
 	log.error(&quot;list is empty&quot;);
 }
+
+
+String article = vars.get(&quot;article&quot;);
+
+log.info(&quot;----------------&quot;+article);
 
 
 
@@ -100,11 +105,49 @@ log.error(rlt);
 if(!rlt.equals(&quot;1&quot;)){
 	Failure=true;
 	FailureMessage=&quot;登录失败&quot;
+}
+
+
+
+for(int i=0;i&lt;jsonTemp.length();i++){
+	String id = json_array.get(i).getString(&quot;id&quot;);
+	if()
 }</stringProp>
           <stringProp name="BeanShellAssertion.filename"></stringProp>
           <stringProp name="BeanShellAssertion.parameters"></stringProp>
           <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
         </BeanShellAssertion>
+        <hashTree/>
+        <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell 后置处理程序" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">//  专题推送的脚本
+
+
+//获取接口返回内容
+String response_data = prev.getResponseDataAsString();
+log.info(&quot;111111111111111111111111&quot;);
+
+//将String类型的返回值构造成JSONObject对象
+JSONObject json_data = new JSONObject(response_data);
+log.info(&quot;22222&quot;);
+
+JSONArray json_array = json_data.get(&quot;data&quot;).get(&quot;data&quot;).getJSONArray(&quot;list&quot;);
+log.info(&quot;json_array数组的值为：&quot;+json_array);
+
+JSONObject jsonTemp = json_array.getJSONObject(1);
+
+// 把contentId :321313 放到 jsonTemp里面
+jsonTemp.put(&quot;contentId&quot;,&quot;${article_id}&quot;);
+jsonTemp.put(&quot;sort&quot;,1);
+jsonTemp.put(&quot;noticeColumnPush&quot;,1);
+jsonTemp.put(&quot;isNotificationPush&quot;,true);
+
+log.info(&quot;jsonTemp的值为：&quot;+jsonTemp);
+
+vars.putObject(&quot;jsonTemp&quot;,jsonTemp);</stringProp>
+        </BeanShellPostProcessor>
         <hashTree/>
         <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="调试取样器" enabled="true">
           <boolProp name="displayJMeterProperties">false</boolProp>
