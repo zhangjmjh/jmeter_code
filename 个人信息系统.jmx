@@ -494,7 +494,7 @@ log.info(pwd);</stringProp>
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="初始化账号" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="初始化账号" enabled="false"/>
         <hashTree>
           <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="false">
             <boolProp name="autocommit">true</boolProp>
@@ -2155,7 +2155,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4、文章评论/回复/删除" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4、文章评论/回复/删除" enabled="true"/>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器（APP）" enabled="true">
               <collectionProp name="HeaderManager.headers">
@@ -2557,6 +2557,10 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="false">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
+            <hashTree/>
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="5、文章收藏/取消收藏/删除" enabled="false"/>
           <hashTree>
@@ -5990,7 +5994,7 @@ vars.put(&quot;count&quot;,count+&quot;&quot;);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="12、企业认证" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="12、企业认证" enabled="false"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登录健康号" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
