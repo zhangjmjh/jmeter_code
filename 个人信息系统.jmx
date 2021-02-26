@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="健康头条-个人信息系统" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -9,7 +9,7 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="TestPlan.user_define_classpath">D:\Program File\apache-jmeter-5.4\lib\json-lib-2.4-jdk15.jar,D:\Program File\apache-jmeter-5.4\lib\json.jar,D:\Program File\mysql-connector-java-8.0.11\mysql-connector-java-8.0.11.jar</stringProp>
+      <stringProp name="TestPlan.user_define_classpath">D:\Program Files\apache-jmeter-5.4.1\lib\json-lib-2.4-jdk15.jar,D:\Program Files\apache-jmeter-5.4.1\lib\json.jar,D:\Program File\mysql-connector-java-8.0.11\mysql-connector-java-8.0.11.jar</stringProp>
     </TestPlan>
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="全局变量" enabled="true">
@@ -665,7 +665,7 @@ log.info(pwd);</stringProp>
           </JDBCSampler>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="false"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="1、修改（性别+生日+地区）" enabled="false"/>
           <hashTree>
