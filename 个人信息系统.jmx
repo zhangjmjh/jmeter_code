@@ -7987,7 +7987,7 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3、注册企业用户" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="5、注册企业用户-考虑中" enabled="false"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询企业用户注册信息" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
