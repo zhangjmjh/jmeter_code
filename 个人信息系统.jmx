@@ -2457,7 +2457,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;commentId&quot;:&quot;533809272625418240&quot;,&quot;comment&quot;:&quot;收到&quot;,&quot;replyId&quot;:&quot;533809272625418240&quot;,&quot;replyType&quot;:&quot;0&quot;,&quot;toUserHeadPortrait&quot;:&quot;${userAvatarUrl}&quot;,&quot;toUserId&quot;:&quot;${id}&quot;,&quot;toUserName&quot;:&quot;${userName}&quot;}&#xd;
+                      <stringProp name="Argument.value">{&quot;commentId&quot;:&quot;533809272625418240&quot;,&quot;comment&quot;:&quot;写的很好，点赞！&quot;,&quot;replyId&quot;:&quot;533809272625418240&quot;,&quot;replyType&quot;:&quot;0&quot;,&quot;toUserHeadPortrait&quot;:&quot;${userAvatarUrl}&quot;,&quot;toUserId&quot;:&quot;${id}&quot;,&quot;toUserName&quot;:&quot;${userName}&quot;}&#xd;
 &#xd;
 &#xd;
 &#xd;
@@ -2484,7 +2484,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
                     <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                    <stringProp name="-1768788619">&quot;content&quot;:&quot;收到&quot;</stringProp>
+                    <stringProp name="-97766429">&quot;content&quot;:&quot;写的很好，点赞！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message">评论文章失败</stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -2503,6 +2503,48 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                   <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.id</stringProp>
                   <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
                 </JSONPostProcessor>
+                <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序" enabled="true">
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="script">import org.apache.jmeter.config.Arguments;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import java.util.*;
+import java.util.Date;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.nio.charset.Charset;
+
+//获取接口的请求参数
+Date d1 = new Date();
+String timestamp = d1.getTime()+&quot;&quot;;
+vars.put(&quot;timestamp&quot;, timestamp);
+Arguments args = sampler.getArguments();
+
+//转成map,{&quot;&quot;, &quot;请求参数&quot;}
+Map reqMap = args.getArgumentsAsMap();
+String params = reqMap.get(&quot;&quot;).toString();
+TreeMap map = JSON.parseObject(params,TreeMap.class);
+String str = &quot;&quot;;
+for(String key:map.keySet()){
+	str += key + &quot;=&quot; + map.get(key) + &quot;&amp;&quot;;
+}
+str += &quot;timestamp=&quot;+timestamp+&quot;&amp;key=JQz80G8xBQblioVgpD7kYbNWEmRgFpCi&quot;;
+log.info(str);
+MessageDigest digestFunction = MessageDigest.getInstance(&quot;SHA-1&quot;);
+String nowSign = new BigInteger(1,digestFunction.digest(str.getBytes(Charset.forName(&quot;UTF-8&quot;)))).toString(16).toUpperCase();
+vars.put(&quot;nowSign&quot;, nowSign);
+log.info(&quot;11111111111111&quot;);
+log.info(nowSign);
+</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
+                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+                  <stringProp name="ConstantTimer.delay">2000</stringProp>
+                </ConstantTimer>
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询文章评论列表" enabled="false">
