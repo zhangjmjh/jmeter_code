@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="健康头条-消息管理系统" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -142,6 +142,10 @@
           <elementProp name="content-type" elementType="Header">
             <stringProp name="Header.name">content-type</stringProp>
             <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+          </elementProp>
+          <elementProp name="versionName" elementType="Header">
+            <stringProp name="Header.name">versionName</stringProp>
+            <stringProp name="Header.value">1.1.0</stringProp>
           </elementProp>
         </collectionProp>
       </HeaderManager>
@@ -14794,7 +14798,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
             </hashTree>
           </hashTree>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取推荐列表" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取推荐列表" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
