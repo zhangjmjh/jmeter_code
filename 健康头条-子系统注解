@@ -10,8 +10,22 @@ b90902f02a2a04ca    39182258
 
 注解：
 1、个人信息系统：
-	修改个人资料：修改性别、生日、地区、用户名、头像、用户简介、背景，审核不通过/通过；后台添加用户
-	投诉反馈：APP内容投诉（列表、内容、评论），健康号举报；APP、官网问题反馈，管理员回复
+	个人资料：修改性别、生日、地区、邮箱、用户名、头像、用户简介、背景，审核不通过/通过；后台添加用户
+	投诉反馈：APP内容投诉（列表、内容、评论）；健康号举报；APP、官网问题反馈，管理员回复
+	个人操作：评论、收藏、点赞、关注（用户+话题）、转发（APP+第三方）、增加历史记录
+	认证：
+
+
+
+
+
+
+
+
+
+
+
+
 
 2、自媒体系统：表示在APP、健康号上管理、发布内容的管理系统
 3、后台管理系统：其他特定栏目的管理系统（APP渠道管理、消息推送管理）
@@ -19,3 +33,15 @@ b90902f02a2a04ca    39182258
 5、商城系统：表示兑换商品、管理商品的管理系统
 标注带🔒的栏目：表示在线上环境不可用测试账号随意操作
 6、消息管理系统：表示所有消息类通知管理系统
+
+
+2021-04-09 16:48:28.672 11574-17621/com.hhhl.health D/OkHttp: <-- 200  https://app-connect.jk-tt.com/comment/comment/deleteCommentLot (520ms)
+2021-04-09 16:48:28.672 11574-17621/com.hhhl.health D/OkHttp: date: Fri, 09 Apr 2021 08:48:26 GMT
+2021-04-09 16:48:28.672 11574-17621/com.hhhl.health D/OkHttp: content-type: application/json;charset=UTF-8
+2021-04-09 16:48:28.672 11574-17621/com.hhhl.health D/OkHttp: vary: Accept-Encoding
+2021-04-09 16:48:28.672 11574-17621/com.hhhl.health D/OkHttp: set-cookie: JSESSIONID=BCD289A2510DE152B2C757728A5B8C7B; Path=/; HttpOnly
+2021-04-09 16:48:28.672 11574-17621/com.hhhl.health D/OkHttp: strict-transport-security: max-age=15724800; includeSubDomains
+2021-04-09 16:48:28.673 11574-17621/com.hhhl.health D/OkHttp: {"status":0,"msg":"批量删除评论成功","data":null}
+
+
+
