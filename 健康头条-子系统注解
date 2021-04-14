@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+个人信息系统
+
+初始化账号：
+	1、删除已完成的任务记录
+	2、删除已获得的金币
+	3、删除已发布的健康圈
+	4、删除已发布的文章
+	5、修改用户类型
+	6、删除审核资料
+	7、删除身份认证
+	8、删除职业认证
+	9、删除兴趣认证
+	10、删除企业认证
+	11、删除账号
+
+准备：
+验证码注册、登录后台
+
+正向场景用例：
+	1、修改登录密码                --断言账号密码登录
+	2、修改性别、生日、地区          --断言性别、生日、地区
+	3、修改用户名、背景、头像、用户简介审核通过      --断言用户名、背景、头像、用户简介
+	4、绑定微博               --断言微博标识为N且微博能正常登录
+	5、
+
+
+
+
+	/comment/userFeedback/insert?phoneNumber=${phoneNumber}&content="我建议内容可以再丰富些"&images=${images}
+
+	${app}/comment/userFeedback/insert?phoneNumber=${phoneNumber}&content=%E6%88%91%E5%BB%BA%E8%AE%AE%E5%86%85%E5%AE%B9%E5%8F%AF%E4%BB%A5%E5%86%8D%E4%B8%B0%E5%AF%8C%E4%BA%9B&images=${images},${images},${images}
+
+

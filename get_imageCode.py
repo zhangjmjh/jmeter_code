@@ -5,7 +5,7 @@ import time
 import sys
 
 
-path = "D://fileData//imageCodes//"
+path = "D:\\jmeter_code\\imageCodes\\"
 
 
 def get_image(str_reponse):
