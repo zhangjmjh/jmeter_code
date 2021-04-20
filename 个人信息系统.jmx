@@ -113,7 +113,7 @@
           <elementProp name="image_url" elementType="Argument">
             <stringProp name="Argument.name">image_url</stringProp>
             <stringProp name="Argument.value">http://hhhealthapp.oss-cn-beijing.aliyuncs.com/20210414/1618386468583.png</stringProp>
-            <stringProp name="Argument.desc">背景图、发健康圈图、意见反馈图、企业认证图、职业认证图</stringProp>
+            <stringProp name="Argument.desc">背景图、发健康圈图、意见反馈图、企业认证图、职业认证图、其他</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
