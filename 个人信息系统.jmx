@@ -14,12 +14,6 @@
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="全局变量" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="phoneNumber" elementType="Argument">
-            <stringProp name="Argument.name">phoneNumber</stringProp>
-            <stringProp name="Argument.value">199${__Random(00000000,99999999,)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">个人用户手机号</stringProp>
-          </elementProp>
           <elementProp name="app" elementType="Argument">
             <stringProp name="Argument.name">app</stringProp>
             <stringProp name="Argument.value">https://zixun.001pt.com</stringProp>
@@ -49,6 +43,18 @@
             <stringProp name="Argument.value">http://192.168.122.31:8081</stringProp>
             <stringProp name="Argument.desc">身份认证的人脸认证</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="phoneNumber" elementType="Argument">
+            <stringProp name="Argument.name">phoneNumber</stringProp>
+            <stringProp name="Argument.value">199${__Random(00000000,99999999,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">个人用户手机号</stringProp>
+          </elementProp>
+          <elementProp name="enterprise_userName" elementType="Argument">
+            <stringProp name="Argument.name">enterprise_userName</stringProp>
+            <stringProp name="Argument.value">企业用户${__Random(0,999999,userName)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">注册企业用户的用户名</stringProp>
           </elementProp>
           <elementProp name="count" elementType="Argument">
             <stringProp name="Argument.name">count</stringProp>
@@ -86,11 +92,17 @@
             <stringProp name="Argument.desc">背景图、发健康圈图、意见反馈图、企业认证图、职业认证图、兴趣认证图、身份认证图</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="enterprise_userName" elementType="Argument">
-            <stringProp name="Argument.name">enterprise_userName</stringProp>
-            <stringProp name="Argument.value">企业用户${__Random(0,999999,userName)}</stringProp>
+          <elementProp name="unionid_wechat" elementType="Argument">
+            <stringProp name="Argument.name">unionid_wechat</stringProp>
+            <stringProp name="Argument.value">6935081762</stringProp>
+            <stringProp name="Argument.desc">微信</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">注册企业用户的用户名</stringProp>
+          </elementProp>
+          <elementProp name="unionid_sina" elementType="Argument">
+            <stringProp name="Argument.name">unionid_sina</stringProp>
+            <stringProp name="Argument.value">oXAQu53VI2Jfpww1z8NPWWnYXsfU</stringProp>
+            <stringProp name="Argument.desc">微博</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
       </Arguments>
@@ -261,8 +273,37 @@ log.info(nowSign);
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="初始化账号" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="初始化账号" enabled="true"/>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="versionName" elementType="Header">
+                <stringProp name="Header.name">versionName</stringProp>
+                <stringProp name="Header.value">1.2.1</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">timestamp</stringProp>
+                <stringProp name="Header.value">${timestamp}</stringProp>
+              </elementProp>
+              <elementProp name="sign" elementType="Header">
+                <stringProp name="Header.name">sign</stringProp>
+                <stringProp name="Header.value">${nowSign}</stringProp>
+              </elementProp>
+              <elementProp name="systemType" elementType="Header">
+                <stringProp name="Header.name">systemType</stringProp>
+                <stringProp name="Header.value">ANDROID</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${token}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="验证码登录" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -529,7 +570,7 @@ log.info(nowSign);
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;loginName&quot;:&quot;18138214088&quot;,&quot;verifyCode&quot;:&quot;123456&quot;,&quot;platform&quot;:&quot;&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;loginName&quot;:&quot;15956556565&quot;,&quot;verifyCode&quot;:&quot;123456&quot;,&quot;platform&quot;:&quot;&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
@@ -549,6 +590,35 @@ log.info(nowSign);
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="versionName" elementType="Header">
+                <stringProp name="Header.name">versionName</stringProp>
+                <stringProp name="Header.value">1.2.1</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">timestamp</stringProp>
+                <stringProp name="Header.value">${timestamp}</stringProp>
+              </elementProp>
+              <elementProp name="sign" elementType="Header">
+                <stringProp name="Header.name">sign</stringProp>
+                <stringProp name="Header.value">${nowSign}</stringProp>
+              </elementProp>
+              <elementProp name="systemType" elementType="Header">
+                <stringProp name="Header.name">systemType</stringProp>
+                <stringProp name="Header.value">ANDROID</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${token}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
@@ -659,7 +729,7 @@ log.info(&quot;num&quot;)</stringProp>
           </JSR223PostProcessor>
           <hashTree/>
         </hashTree>
-        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="登录后台" enabled="false">
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="登录后台" enabled="true">
           <stringProp name="WhileController.condition">${__javaScript(&quot;${msg}&quot;!=&quot;null&quot; &amp;&amp; ${count}!=20)}</stringProp>
         </WhileController>
         <hashTree>
@@ -786,10 +856,39 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="true"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注册企业用户" enabled="false"/>
           <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="content-type" elementType="Header">
+                  <stringProp name="Header.name">content-type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="versionName" elementType="Header">
+                  <stringProp name="Header.name">versionName</stringProp>
+                  <stringProp name="Header.value">1.2.1</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">timestamp</stringProp>
+                  <stringProp name="Header.value">${timestamp}</stringProp>
+                </elementProp>
+                <elementProp name="sign" elementType="Header">
+                  <stringProp name="Header.name">sign</stringProp>
+                  <stringProp name="Header.value">${nowSign}</stringProp>
+                </elementProp>
+                <elementProp name="systemType" elementType="Header">
+                  <stringProp name="Header.name">systemType</stringProp>
+                  <stringProp name="Header.value">ANDROID</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="手机号注册" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1115,7 +1214,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
 	&quot;identityAuthenticationInfo&quot;: {&#xd;
 		&quot;idCardFront&quot;: &quot;${idCardFront}&quot;,&#xd;
 		&quot;idCardBack&quot;: &quot;${idCardBack}&quot;,&#xd;
-		&quot;name&quot;: &quot;测试用户&quot;,&#xd;
+		&quot;name&quot;: &quot;企业用户&quot;,&#xd;
 		&quot;idCard&quot;: &quot;430723199410180419&quot;,&#xd;
 		&quot;email&quot;: &quot;912178454@qq.com&quot;,&#xd;
 		&quot;provinceId&quot;: 1,&#xd;
@@ -1266,6 +1365,35 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="添加个人用户" enabled="false"/>
           <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="content-type" elementType="Header">
+                  <stringProp name="Header.name">content-type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="versionName" elementType="Header">
+                  <stringProp name="Header.name">versionName</stringProp>
+                  <stringProp name="Header.value">1.2.1</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">timestamp</stringProp>
+                  <stringProp name="Header.value">${timestamp}</stringProp>
+                </elementProp>
+                <elementProp name="sign" elementType="Header">
+                  <stringProp name="Header.name">sign</stringProp>
+                  <stringProp name="Header.value">${nowSign}</stringProp>
+                </elementProp>
+                <elementProp name="systemType" elementType="Header">
+                  <stringProp name="Header.name">systemType</stringProp>
+                  <stringProp name="Header.value">ANDROID</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加个人普通用户" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1379,6 +1507,35 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改登录密码" enabled="false"/>
           <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="content-type" elementType="Header">
+                  <stringProp name="Header.name">content-type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="versionName" elementType="Header">
+                  <stringProp name="Header.name">versionName</stringProp>
+                  <stringProp name="Header.value">1.2.1</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">timestamp</stringProp>
+                  <stringProp name="Header.value">${timestamp}</stringProp>
+                </elementProp>
+                <elementProp name="sign" elementType="Header">
+                  <stringProp name="Header.name">sign</stringProp>
+                  <stringProp name="Header.value">${nowSign}</stringProp>
+                </elementProp>
+                <elementProp name="systemType" elementType="Header">
+                  <stringProp name="Header.name">systemType</stringProp>
+                  <stringProp name="Header.value">ANDROID</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
             <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="RSA加密密码" enabled="true">
               <stringProp name="BeanShellSampler.query">import org.apache.commons.codec.binary.Base64;
 import javax.crypto.Cipher;
@@ -1569,6 +1726,35 @@ log.info(pwd);</stringProp>
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="全局搜索" enabled="false"/>
           <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="content-type" elementType="Header">
+                  <stringProp name="Header.name">content-type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="versionName" elementType="Header">
+                  <stringProp name="Header.name">versionName</stringProp>
+                  <stringProp name="Header.value">1.2.1</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">timestamp</stringProp>
+                  <stringProp name="Header.value">${timestamp}</stringProp>
+                </elementProp>
+                <elementProp name="sign" elementType="Header">
+                  <stringProp name="Header.name">sign</stringProp>
+                  <stringProp name="Header.value">${nowSign}</stringProp>
+                </elementProp>
+                <elementProp name="systemType" elementType="Header">
+                  <stringProp name="Header.name">systemType</stringProp>
+                  <stringProp name="Header.value">ANDROID</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="搜索" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1613,6 +1799,35 @@ log.info(pwd);</stringProp>
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="性别、生日、地区" enabled="false"/>
           <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="content-type" elementType="Header">
+                  <stringProp name="Header.name">content-type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="versionName" elementType="Header">
+                  <stringProp name="Header.name">versionName</stringProp>
+                  <stringProp name="Header.value">1.2.1</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">timestamp</stringProp>
+                  <stringProp name="Header.value">${timestamp}</stringProp>
+                </elementProp>
+                <elementProp name="sign" elementType="Header">
+                  <stringProp name="Header.name">sign</stringProp>
+                  <stringProp name="Header.value">${nowSign}</stringProp>
+                </elementProp>
+                <elementProp name="systemType" elementType="Header">
+                  <stringProp name="Header.name">systemType</stringProp>
+                  <stringProp name="Header.value">ANDROID</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="所有地区信息" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
@@ -1719,6 +1934,35 @@ log.info(pwd);</stringProp>
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="用户名、背景、头像、用户简介" enabled="false"/>
           <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="content-type" elementType="Header">
+                  <stringProp name="Header.name">content-type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="versionName" elementType="Header">
+                  <stringProp name="Header.name">versionName</stringProp>
+                  <stringProp name="Header.value">1.2.1</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">timestamp</stringProp>
+                  <stringProp name="Header.value">${timestamp}</stringProp>
+                </elementProp>
+                <elementProp name="sign" elementType="Header">
+                  <stringProp name="Header.name">sign</stringProp>
+                  <stringProp name="Header.value">${nowSign}</stringProp>
+                </elementProp>
+                <elementProp name="systemType" elementType="Header">
+                  <stringProp name="Header.name">systemType</stringProp>
+                  <stringProp name="Header.value">ANDROID</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="修改用户名" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -2201,8 +2445,37 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="绑定/解绑微博" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="绑定微信/微博" enabled="false"/>
           <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="content-type" elementType="Header">
+                  <stringProp name="Header.name">content-type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="versionName" elementType="Header">
+                  <stringProp name="Header.name">versionName</stringProp>
+                  <stringProp name="Header.value">1.2.1</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">timestamp</stringProp>
+                  <stringProp name="Header.value">${timestamp}</stringProp>
+                </elementProp>
+                <elementProp name="sign" elementType="Header">
+                  <stringProp name="Header.name">sign</stringProp>
+                  <stringProp name="Header.value">${nowSign}</stringProp>
+                </elementProp>
+                <elementProp name="systemType" elementType="Header">
+                  <stringProp name="Header.name">systemType</stringProp>
+                  <stringProp name="Header.value">ANDROID</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="绑定微博" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
@@ -2261,103 +2534,6 @@ log.info(unionid);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询个人信息" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">${app}/user/headlineUser/appUserDetailInfo?id=${id}&amp;otherUserId=${id}</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-1131874696">&quot;sinaIsBind&quot;:true</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                <stringProp name="ConstantTimer.delay">800</stringProp>
-              </ConstantTimer>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="解绑微博" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">${app}/user/third/thirdUnbind?loginType=3</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message">解绑微博</stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询个人信息" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">${app}/user/headlineUser/appUserDetailInfo?id=${id}&amp;otherUserId=${id}</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-741821063">&quot;sinaIsBind&quot;:false</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message">查询是否解绑微博</stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-          </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="绑定/解绑微信" enabled="false"/>
-          <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="绑定微信" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
@@ -2437,6 +2613,7 @@ log.info(unionid);
             <hashTree>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-1131874696">&quot;sinaIsBind&quot;:true</stringProp>
                   <stringProp name="1374428949">&quot;wechatIsBind&quot;:true</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.custom_message"></stringProp>
@@ -2450,70 +2627,10 @@ log.info(unionid);
               </ConstantTimer>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="解绑微信" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">${app}/user/third/thirdUnbind?loginType=1</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-161783868">&quot;status&quot;:0</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询个人信息" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">${app}/user/headlineUser/appUserDetailInfo?id=${id}&amp;otherUserId=${id}</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-355819396">&quot;wechatIsBind&quot;:false</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">2</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="用户反馈（未完成）" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="用户反馈（未完成）" enabled="true"/>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="提交意见反馈" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="提交意见反馈" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2532,6 +2649,35 @@ log.info(unionid);
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                  </elementProp>
+                  <elementProp name="versionName" elementType="Header">
+                    <stringProp name="Header.name">versionName</stringProp>
+                    <stringProp name="Header.value">1.2.1</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">timestamp</stringProp>
+                    <stringProp name="Header.value">${timestamp}</stringProp>
+                  </elementProp>
+                  <elementProp name="sign" elementType="Header">
+                    <stringProp name="Header.name">sign</stringProp>
+                    <stringProp name="Header.value">${nowSign}</stringProp>
+                  </elementProp>
+                  <elementProp name="systemType" elementType="Header">
+                    <stringProp name="Header.name">systemType</stringProp>
+                    <stringProp name="Header.value">ANDROID</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">${token}</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
@@ -2543,7 +2689,7 @@ log.info(unionid);
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询后台反馈列表" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询后台反馈列表" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2562,6 +2708,35 @@ log.info(unionid);
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                  </elementProp>
+                  <elementProp name="versionName" elementType="Header">
+                    <stringProp name="Header.name">versionName</stringProp>
+                    <stringProp name="Header.value">1.2.1</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">timestamp</stringProp>
+                    <stringProp name="Header.value">${timestamp}</stringProp>
+                  </elementProp>
+                  <elementProp name="sign" elementType="Header">
+                    <stringProp name="Header.name">sign</stringProp>
+                    <stringProp name="Header.value">${nowSign}</stringProp>
+                  </elementProp>
+                  <elementProp name="systemType" elementType="Header">
+                    <stringProp name="Header.name">systemType</stringProp>
+                    <stringProp name="Header.value">ANDROID</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">${token}</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
@@ -2586,50 +2761,28 @@ log.info(unionid);
               <stringProp name="HTTPSampler.domain"></stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">${admin}/comment/userFeedback/reply?id=573&amp;userId=5335&amp;reply=1213131</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="回复反馈" enabled="false">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf8</stringProp>
-              <stringProp name="HTTPSampler.path">${admin}/comment/userFeedback/reply?id=573&amp;userId=5335&amp;reply=1213131</stringProp>
+              <stringProp name="HTTPSampler.path">${admin}/comment/userFeedback/reply?id=${reply_id}&amp;userId=${id}&amp;reply=yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.implementation">Java</stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
                 <collectionProp name="HeaderManager.headers">
-                  <elementProp name="systemType" elementType="Header">
-                    <stringProp name="Header.name">systemType</stringProp>
-                    <stringProp name="Header.value">WEB</stringProp>
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
                   </elementProp>
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">versionname</stringProp>
                     <stringProp name="Header.value">1.3.0</stringProp>
-                  </elementProp>
-                  <elementProp name="" elementType="Header">
-                    <stringProp name="Header.name">content-type</stringProp>
-                    <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
@@ -2645,7 +2798,7 @@ log.info(unionid);
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="回复历史" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="回复历史" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2664,6 +2817,35 @@ log.info(unionid);
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                  </elementProp>
+                  <elementProp name="versionName" elementType="Header">
+                    <stringProp name="Header.name">versionName</stringProp>
+                    <stringProp name="Header.value">1.2.1</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">timestamp</stringProp>
+                    <stringProp name="Header.value">${timestamp}</stringProp>
+                  </elementProp>
+                  <elementProp name="sign" elementType="Header">
+                    <stringProp name="Header.name">sign</stringProp>
+                    <stringProp name="Header.value">${nowSign}</stringProp>
+                  </elementProp>
+                  <elementProp name="systemType" elementType="Header">
+                    <stringProp name="Header.name">systemType</stringProp>
+                    <stringProp name="Header.value">ANDROID</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">${token}</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
@@ -2678,6 +2860,35 @@ log.info(unionid);
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="官网意见反馈" enabled="false"/>
           <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="content-type" elementType="Header">
+                  <stringProp name="Header.name">content-type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="versionName" elementType="Header">
+                  <stringProp name="Header.name">versionName</stringProp>
+                  <stringProp name="Header.value">1.2.1</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">timestamp</stringProp>
+                  <stringProp name="Header.value">${timestamp}</stringProp>
+                </elementProp>
+                <elementProp name="sign" elementType="Header">
+                  <stringProp name="Header.name">sign</stringProp>
+                  <stringProp name="Header.value">${nowSign}</stringProp>
+                </elementProp>
+                <elementProp name="systemType" elementType="Header">
+                  <stringProp name="Header.name">systemType</stringProp>
+                  <stringProp name="Header.value">ANDROID</stringProp>
+                </elementProp>
+                <elementProp name="Authorization" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${token}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="提交意见反馈" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -2755,6 +2966,43 @@ log.info(unionid);
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="身份认证审核通过" enabled="false"/>
           <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="未认证登录健康号" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;platform&quot;:&quot;healthnum&quot;,&quot;verifyCode&quot;:&quot;123456&quot;,&quot;loginName&quot;:&quot;${phoneNumber}&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${health}/user/headlineLogin/phoneLogin</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="786808391">&quot;isIdentityAuthStatus&quot;:false</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message">未认证登录健康号</stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="所有地区信息" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
@@ -4788,7 +5036,36 @@ for(int i=0;i&lt;json_array.length();i++){
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例管理" enabled="false"/>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账号禁用无法修改资料" enabled="false"/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="versionName" elementType="Header">
+                <stringProp name="Header.name">versionName</stringProp>
+                <stringProp name="Header.value">1.2.1</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">timestamp</stringProp>
+                <stringProp name="Header.value">${timestamp}</stringProp>
+              </elementProp>
+              <elementProp name="sign" elementType="Header">
+                <stringProp name="Header.name">sign</stringProp>
+                <stringProp name="Header.value">${nowSign}</stringProp>
+              </elementProp>
+              <elementProp name="systemType" elementType="Header">
+                <stringProp name="Header.name">systemType</stringProp>
+                <stringProp name="Header.value">ANDROID</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${token}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账号禁用无法修改资料" enabled="true"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="禁用" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -5096,7 +5373,7 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="背景、头像、用户简介(不通过)" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="背景、头像、用户简介(不通过)" enabled="true"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="修改背景" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -5412,7 +5689,7 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="用户名超过次数" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="用户名超过次数" enabled="true"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="修改用户名" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -5452,7 +5729,7 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改背景超过次数" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改背景超过次数" enabled="true"/>
           <hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
@@ -5642,7 +5919,7 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改头像超过次数" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改头像超过次数" enabled="true"/>
           <hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
@@ -5830,7 +6107,7 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改用户简介超过次数" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改用户简介超过次数" enabled="true"/>
           <hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
@@ -6018,7 +6295,7 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账户有金币注销失败" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账户有金币注销失败" enabled="true"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询现有金币" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -6094,44 +6371,8 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账户有绑定关系注销失败" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账户有绑定关系注销失败" enabled="true"/>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询现有金币" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${admin}/gold/goldRecord/queryByAll?userName=&amp;phone=${phoneNumber}&amp;pageNum=1&amp;pageSize=10</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 totalMoney" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">totalMoney</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.list[0].totalMoney</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="账号注销校验" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -6160,7 +6401,7 @@ for(int i=0;i&lt;json_array.length();i++){
             <hashTree>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="1094936338">&quot;propertyIsSettled&quot;:false,&quot;accountPowerIsRelease&quot;:true,&quot;accountIsSafe&quot;:true</stringProp>
+                  <stringProp name="418772424">&quot;accountPowerIsRelease&quot;:false</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.custom_message">账号注销校验证</stringProp>
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -6170,7 +6411,7 @@ for(int i=0;i&lt;json_array.length();i++){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注销账号" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注销账号" enabled="true"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询现有金币" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -6397,6 +6638,97 @@ for(int i=0;i&lt;json_array.length();i++){
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
                 <boolProp name="Assertion.assume_success">false</boolProp>
                 <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="解绑微博" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${app}/user/third/thirdUnbind?loginType=3</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message">解绑微博</stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="解绑微信" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${app}/user/third/thirdUnbind?loginType=1</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-161783868">&quot;status&quot;:0</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询个人信息" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${app}/user/headlineUser/appUserDetailInfo?id=${id}&amp;otherUserId=${id}</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-355819396">&quot;wechatIsBind&quot;:false</stringProp>
+                  <stringProp name="-741821063">&quot;sinaIsBind&quot;:false</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message">验证解绑微信微博</stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
