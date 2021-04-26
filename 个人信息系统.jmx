@@ -89,7 +89,7 @@
           <elementProp name="image_url" elementType="Argument">
             <stringProp name="Argument.name">image_url</stringProp>
             <stringProp name="Argument.value">http://hhhealthapp.oss-cn-beijing.aliyuncs.com/20210414/1618386468583.png</stringProp>
-            <stringProp name="Argument.desc">背景图、发健康圈图、意见反馈图、企业认证图、职业认证图、兴趣认证图、身份认证图</stringProp>
+            <stringProp name="Argument.desc">背景图、健康圈图、意见反馈图、企业认证图、职业认证图、兴趣认证图、身份认证图</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="unionid_wechat" elementType="Argument">
@@ -869,7 +869,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="true"/>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注册企业用户" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注册企业用户" enabled="true"/>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
               <collectionProp name="HeaderManager.headers">
@@ -6894,7 +6894,7 @@ for(int i=0;i&lt;json_array.length();i++){
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例管理" enabled="true"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账号禁用无法修改资料" enabled="true"/>
           <hashTree>
@@ -7035,7 +7035,7 @@ for(int i=0;i&lt;json_array.length();i++){
             <hashTree>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="630734367">&quot;code&quot;:1001,&quot;message&quot;:&quot;您的账号异常，不可修改个人信息\n请至[我的]-[用户反馈]联系平台客服&quot;</stringProp>
+                  <stringProp name="-891851178">&quot;message&quot;:&quot;您的账号异常，不可修改个人信息，请至[我的]-[用户反馈]联系平台客服&quot;</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.custom_message">修改用户名</stringProp>
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -7073,7 +7073,7 @@ for(int i=0;i&lt;json_array.length();i++){
             <hashTree>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="630734367">&quot;code&quot;:1001,&quot;message&quot;:&quot;您的账号异常，不可修改个人信息\n请至[我的]-[用户反馈]联系平台客服&quot;</stringProp>
+                  <stringProp name="-891851178">&quot;message&quot;:&quot;您的账号异常，不可修改个人信息，请至[我的]-[用户反馈]联系平台客服&quot;</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.custom_message">修改背景图失败</stringProp>
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -7110,7 +7110,7 @@ for(int i=0;i&lt;json_array.length();i++){
             <hashTree>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="630734367">&quot;code&quot;:1001,&quot;message&quot;:&quot;您的账号异常，不可修改个人信息\n请至[我的]-[用户反馈]联系平台客服&quot;</stringProp>
+                  <stringProp name="-891851178">&quot;message&quot;:&quot;您的账号异常，不可修改个人信息，请至[我的]-[用户反馈]联系平台客服&quot;</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.custom_message">修改头像失败</stringProp>
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -7147,7 +7147,7 @@ for(int i=0;i&lt;json_array.length();i++){
             <hashTree>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="630734367">&quot;code&quot;:1001,&quot;message&quot;:&quot;您的账号异常，不可修改个人信息\n请至[我的]-[用户反馈]联系平台客服&quot;</stringProp>
+                  <stringProp name="-891851178">&quot;message&quot;:&quot;您的账号异常，不可修改个人信息，请至[我的]-[用户反馈]联系平台客服&quot;</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.custom_message">修改用户简介</stringProp>
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
