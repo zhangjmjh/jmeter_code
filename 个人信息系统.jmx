@@ -50,11 +50,11 @@
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">个人用户手机号</stringProp>
           </elementProp>
-          <elementProp name="enterprise_userName" elementType="Argument">
-            <stringProp name="Argument.name">enterprise_userName</stringProp>
-            <stringProp name="Argument.value">企业用户${__Random(0,999999,userName)}</stringProp>
+          <elementProp name="loginName" elementType="Argument">
+            <stringProp name="Argument.name">loginName</stringProp>
+            <stringProp name="Argument.value">139${__Random(11111111,99999999,)}</stringProp>
+            <stringProp name="Argument.desc">企业用户手机号</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">注册企业用户的用户名</stringProp>
           </elementProp>
           <elementProp name="count" elementType="Argument">
             <stringProp name="Argument.name">count</stringProp>
@@ -102,6 +102,12 @@
             <stringProp name="Argument.name">unionid_sina</stringProp>
             <stringProp name="Argument.value">oXAQu53VI2Jfpww1z8NPWWnYXsfU</stringProp>
             <stringProp name="Argument.desc">微博</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="enterprise_userName" elementType="Argument">
+            <stringProp name="Argument.name">enterprise_userName</stringProp>
+            <stringProp name="Argument.value">企业用户${__Random(0,999999,userName)}</stringProp>
+            <stringProp name="Argument.desc">注册企业用户的用户名</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -908,7 +914,7 @@ vars.put(&quot;str_date&quot;,str_date);</stringProp>
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">{&#xd;
 	&quot;platform&quot;: &quot;healthnum&quot;,&#xd;
-	&quot;loginName&quot;: &quot;139${__Random(11111111,99999999,)}&quot;,&#xd;
+	&quot;loginName&quot;: &quot;${loginName}&quot;,&#xd;
 	&quot;verifyCode&quot;: &quot;123456&quot;,&#xd;
 	&quot;source&quot;: 2&#xd;
 }</stringProp>
@@ -1980,7 +1986,7 @@ log.info(pwd);</stringProp>
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&quot;id&quot;:${id},&quot;userName&quot;:&quot;测试A${__Random(0,999999999999,userName)}&quot;}</stringProp>
+                    <stringProp name="Argument.value">{&quot;id&quot;:${id},&quot;userName&quot;:&quot;测试A${__Random(0,9999999999,userName)}&quot;}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
                 </collectionProp>
@@ -8859,7 +8865,7 @@ for(int i=0;i&lt;json_array.length();i++){
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="校验账号" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="校验账号" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
