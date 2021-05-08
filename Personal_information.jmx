@@ -20,23 +20,11 @@
             <stringProp name="Argument.desc">APP--测试环境</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="" elementType="Argument">
-            <stringProp name="Argument.name"></stringProp>
-            <stringProp name="Argument.value">https://app-connect.jk-tt.com</stringProp>
-            <stringProp name="Argument.desc">APP--线上环境</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="health" elementType="Argument">
             <stringProp name="Argument.name">health</stringProp>
             <stringProp name="Argument.value">https://zixun-mp.001pt.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">健康号--测试环境</stringProp>
-          </elementProp>
-          <elementProp name="" elementType="Argument">
-            <stringProp name="Argument.name"></stringProp>
-            <stringProp name="Argument.value">https://mp.jk-tt.com</stringProp>
-            <stringProp name="Argument.desc">健康号--线上环境</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="admin" elementType="Argument">
             <stringProp name="Argument.name">admin</stringProp>
@@ -44,16 +32,28 @@
             <stringProp name="Argument.desc">后台--测试环境</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="" elementType="Argument">
-            <stringProp name="Argument.name"></stringProp>
-            <stringProp name="Argument.value">https://web-admin.jk-tt.com</stringProp>
-            <stringProp name="Argument.desc">后台--线上环境</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="pc" elementType="Argument">
             <stringProp name="Argument.name">pc</stringProp>
             <stringProp name="Argument.value">https://zixun-guanwang.001pt.com</stringProp>
             <stringProp name="Argument.desc">官网--测试环境</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Argument">
+            <stringProp name="Argument.name"></stringProp>
+            <stringProp name="Argument.value">https://app-connect.jk-tt.com</stringProp>
+            <stringProp name="Argument.desc">APP--线上环境</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Argument">
+            <stringProp name="Argument.name"></stringProp>
+            <stringProp name="Argument.value">https://mp.jk-tt.com</stringProp>
+            <stringProp name="Argument.desc">健康号--线上环境</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Argument">
+            <stringProp name="Argument.name"></stringProp>
+            <stringProp name="Argument.value">https://web-admin.jk-tt.com</stringProp>
+            <stringProp name="Argument.desc">后台--线上环境</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="" elementType="Argument">
@@ -236,11 +236,15 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.nio.charset.Charset;
 
+
+
 //获取接口的请求参数
 Date d1 = new Date();
 String timestamp = d1.getTime()+&quot;&quot;;
 vars.put(&quot;timestamp&quot;, timestamp);
 Arguments args = sampler.getArguments();
+
+
 
 //转成map,{&quot;&quot;, &quot;请求参数&quot;}
 Map reqMap = args.getArgumentsAsMap();
@@ -250,10 +254,16 @@ String str = &quot;&quot;;
 for(String key:map.keySet()){
 	str += key + &quot;=&quot; + map.get(key) + &quot;&amp;&quot;;
 }
-str += &quot;timestamp=&quot;+timestamp+&quot;&amp;key=b0pDTrrfEn7zhnnLVRjmQG1pUzMrNt1M&quot;;
+str += &quot;timestamp=&quot;+timestamp+&quot;&amp;key=JQz80G8xBQblioVgpD7kYbNWEmRgFpCi&quot;;
 log.info(str);
 MessageDigest digestFunction = MessageDigest.getInstance(&quot;SHA-1&quot;);
 String nowSign = new BigInteger(1,digestFunction.digest(str.getBytes(Charset.forName(&quot;UTF-8&quot;)))).toString(16).toUpperCase();
+
+while(nowSign.length() &lt; 40){
+	nowSign = &quot;0&quot;+nowSign;
+	log.info(&quot;while:&quot;+nowSign);
+}
+
 vars.put(&quot;nowSign&quot;, nowSign);
 log.info(&quot;11111111111111&quot;);
 log.info(nowSign);
@@ -416,7 +426,7 @@ log.info(nowSign);
 </stringProp>
           </BeanShellPreProcessor>
           <hashTree/>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 后置处理程序" enabled="true">
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 后置处理程序" enabled="false">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
