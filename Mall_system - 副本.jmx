@@ -1692,7 +1692,7 @@ log.info(nowSign);
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">[{&quot;couponCoder&quot;:&quot;E4TRWET77WET11&quot;,&quot;couponStartTime&quot;:&quot;2021-05-20 00:00:00&quot;,&quot;couponEndTime&quot;:&quot;2021-06-30 00:00:00&quot;,&quot;commodityCoder&quot;:&quot;P20210419748828&quot;},{&quot;couponCoder&quot;:&quot;ETWERTW55RTERT21&quot;,&quot;couponStartTime&quot;:&quot;2021-05-20 00:00:00&quot;,&quot;couponEndTime&quot;:&quot;2021-06-30 00:00:00&quot;,&quot;commodityCoder&quot;:&quot;P20210419748828&quot;}]</stringProp>
+                    <stringProp name="Argument.value">[{&quot;couponCoder&quot;:&quot;EWRWERREW&quot;,&quot;couponStartTime&quot;:&quot;2021-05-19 00:00:00&quot;,&quot;couponEndTime&quot;:&quot;2021-05-31 00:00:00&quot;,&quot;commodityCoder&quot;:&quot;P20210419748828&quot;},{&quot;couponCoder&quot;:&quot;EWR123213WERREW&quot;,&quot;couponStartTime&quot;:&quot;2021-05-19 00:00:00&quot;,&quot;couponEndTime&quot;:&quot;2021-05-31 00:00:00&quot;,&quot;commodityCoder&quot;:&quot;P20210419748828&quot;}]</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
                 </collectionProp>
@@ -1737,6 +1737,7 @@ import java.security.MessageDigest;
 import java.nio.charset.Charset;
 
 
+
 //获取接口的请求参数
 Date d1 = new Date();
 String timestamp = d1.getTime()+&quot;&quot;;
@@ -1745,19 +1746,25 @@ Arguments args = sampler.getArguments();
 
 //转成map,{&quot;&quot;, &quot;请求参数&quot;}
 Map reqMap = args.getArgumentsAsMap();
-
-String params = reqMap.get(&quot;&quot;).toString();
-//TreeMap map = JSON.parseObject(params,TreeMap.class);
-String[] strings = JSON.parseObject(params, String[].class);
-String str = &quot;&quot;;
-for (int i = 0; i &lt; strings.length; i++) {
-	TreeMap map = JSON.parseObject(strings[i],TreeMap.class);
-	str+=&quot;,&quot;+JSON.toJSONString(map);
-}
 log.info(&quot;34355465756878679789&quot;);
-str=str.substring(1,str.length());
-str +=&quot;&amp;timestamp=&quot;+timestamp+&quot;&amp;key=b0pDTrrfEn7zhnnLVRjmQG1pUzMrNt1M&quot;;
+log.info(reqMap+&quot;&quot;);
+String params = reqMap.get(&quot;&quot;).toString();
+TreeMap map = JSON.parseObject(params,TreeMap.class);
+
+
+String str = &quot;&quot;;
+for(String key:map.keySet()){
+	str += key + &quot;=&quot; + map.get(key) + &quot;&amp;&quot;;
+}
+
+
+str += &quot;timestamp=&quot;+timestamp+&quot;&amp;key=b0pDTrrfEn7zhnnLVRjmQG1pUzMrNt1M&quot;;
 log.info(str);
+
+
+String str = getMapToString(map);
+System.out.println(str);
+log.info(&quot;hhhhhh&quot;+str);
 
 MessageDigest digestFunction = MessageDigest.getInstance(&quot;SHA-1&quot;);
 String nowSign = new BigInteger(1,digestFunction.digest(str.getBytes(Charset.forName(&quot;UTF-8&quot;)))).toString(16).toUpperCase();
