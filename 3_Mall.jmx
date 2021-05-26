@@ -75,7 +75,7 @@
           </elementProp>
           <elementProp name="image_1" elementType="Argument">
             <stringProp name="Argument.name">image_1</stringProp>
-            <stringProp name="Argument.value">D:\jmeter_code\image\1313654.png</stringProp>
+            <stringProp name="Argument.value">D:\jmeter_code\image\180917953.png</stringProp>
             <stringProp name="Argument.desc">虚拟卡券商品图片</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -333,7 +333,6 @@ while(nowSign.length() &lt; 40){
 }
 
 vars.put(&quot;nowSign&quot;, nowSign);
-log.info(&quot;11111111111111&quot;);
 log.info(nowSign);
 </stringProp>
             </BeanShellPreProcessor>
@@ -532,7 +531,7 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改登录密码" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改登录密码" enabled="false"/>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器(APP)" enabled="true">
               <collectionProp name="HeaderManager.headers">
@@ -689,7 +688,12 @@ log.info(pwd);</stringProp>
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&quot;password&quot;:&quot;${pwd}&quot;,&quot;phoneNumber&quot;:&quot;13138810256&quot;}</stringProp>
+                    <stringProp name="Argument.value">{&#xd;
+	&quot;oprType&quot;: 2,&#xd;
+	&quot;password&quot;: &quot;${pwd}&quot;,&#xd;
+	&quot;phoneNumber&quot;: &quot;13138810256&quot;,&#xd;
+	&quot;verifyCode&quot;: &quot;111111&quot;&#xd;
+}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
                 </collectionProp>
@@ -962,7 +966,7 @@ log.info(nowSign);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(Web)" enabled="true">
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(Web)" enabled="false">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -1010,7 +1014,7 @@ log.info(nowSign);
 </stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加供应商" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加供应商" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -1047,6 +1051,79 @@ log.info(nowSign);
                 <intProp name="Assertion.test_type">16</intProp>
               </ResponseAssertion>
               <hashTree/>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(Web)" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.apache.jmeter.config.Arguments;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import java.util.*;
+import java.util.Date;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.nio.charset.Charset;
+
+
+public TreeMap paramSort(Map params){
+        TreeMap map = JSON.parseObject(JSON.toJSONString(params),TreeMap.class);
+		for(String key:map.keySet()){
+            Object param = map.get(key);
+            //List类型
+            if(param instanceof List){
+               String[] strings = JSON.parseObject(param, String[].class);
+			String str = &quot;&quot;;
+			for (int i = 0; i &lt; strings.length; i++) {
+				TreeMap map = JSON.parseObject(strings[i],TreeMap.class);
+				str+=&quot;,&quot;+JSON.toJSONString(map);
+			}
+			param = str.substring(1,str.length());
+            }
+            //Map类型
+            if(param instanceof Map){
+			log.info(&quot;444444&quot;);
+                map.put(key,this.paramSort((Map) param));
+            }else{
+                map.put(key,param);
+            }
+        }
+        return map;
+    }
+
+//获取接口的请求参数
+Date d1 = new Date();
+String timestamp = d1.getTime()+&quot;&quot;;
+vars.put(&quot;timestamp&quot;, timestamp);
+Arguments args = sampler.getArguments();
+
+//转成map,{&quot;&quot;, &quot;请求参数&quot;}
+Map reqMap = args.getArgumentsAsMap();
+String params = reqMap.get(&quot;&quot;).toString();
+Map map1 = JSON.parseObject(params,Map.class);
+TreeMap map = paramSort(map1);
+String str = &quot;&quot;;
+for(String key:map1.keySet()){
+	str += key + &quot;=&quot; + map.get(key) + &quot;&amp;&quot;;
+}
+str += &quot;timestamp=&quot;+timestamp+&quot;&amp;key=b0pDTrrfEn7zhnnLVRjmQG1pUzMrNt1M&quot;;
+log.info(str);
+MessageDigest digestFunction = MessageDigest.getInstance(&quot;SHA-1&quot;);
+String nowSign = new BigInteger(1,digestFunction.digest(str.getBytes(Charset.forName(&quot;UTF-8&quot;)))).toString(16).toUpperCase();
+
+while(nowSign.length() &lt; 40){
+	nowSign = &quot;0&quot;+nowSign;
+	log.info(&quot;while:&quot;+nowSign);
+}
+
+vars.put(&quot;nowSign&quot;, nowSign);
+//log.info(&quot;11111111111111&quot;);
+log.info(nowSign);
+
+
+</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
             </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="供应商列表" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -1054,12 +1131,7 @@ log.info(nowSign);
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-	&quot;supplierName&quot;: &quot;华为药业&quot;,&#xd;
-	&quot;type&quot;: &quot;&quot;,&#xd;
-	&quot;page&quot;: 1,&#xd;
-	&quot;rows&quot;: 10&#xd;
-}</stringProp>
+                    <stringProp name="Argument.value">{&quot;supplierName&quot;:&quot;华为药业&quot;,&quot;type&quot;:&quot;&quot;,&quot;page&quot;:1,&quot;rows&quot;:10}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
                 </collectionProp>
@@ -1095,9 +1167,83 @@ log.info(nowSign);
                 <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
               </JSONPostProcessor>
               <hashTree/>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(最終)" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.apache.jmeter.config.Arguments;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import java.util.*;
+import java.util.Date;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.nio.charset.Charset;
+
+
+public TreeMap paramSort(Map params){
+        TreeMap map = JSON.parseObject(JSON.toJSONString(params),TreeMap.class);
+		for(String key:map.keySet()){
+            Object param = map.get(key);
+            //List类型
+            if(param instanceof List){
+               String[] strings = JSON.parseObject(param, String[].class);
+			String str = &quot;&quot;;
+			for (int i = 0; i &lt; strings.length; i++) {
+				TreeMap map = JSON.parseObject(strings[i],TreeMap.class);
+				str+=&quot;,&quot;+JSON.toJSONString(map);
+			}
+			param = str.substring(1,str.length());
+            }
+            //Map类型
+            if(param instanceof Map){
+			log.info(&quot;444444&quot;);
+                map.put(key,this.paramSort((Map) param));
+            }else{
+                map.put(key,param);
+            }
+        }
+        return map;
+    }
+
+//获取接口的请求参数
+Date d1 = new Date();
+String timestamp = d1.getTime()+&quot;&quot;;
+vars.put(&quot;timestamp&quot;, timestamp);
+Arguments args = sampler.getArguments();
+
+//转成map,{&quot;&quot;, &quot;请求参数&quot;}
+Map reqMap = args.getArgumentsAsMap();
+String params = reqMap.get(&quot;&quot;).toString();
+Map map1 = JSON.parseObject(params,Map.class);
+log.info(&quot;1111111111111111111111111111111111111111111111111&quot;);
+TreeMap map = paramSort(map1);
+String str = &quot;&quot;;
+for(String key:map.keySet()){
+	str += key + &quot;=&quot; + map.get(key) + &quot;&amp;&quot;;
+}
+str += &quot;timestamp=&quot;+timestamp+&quot;&amp;key=b0pDTrrfEn7zhnnLVRjmQG1pUzMrNt1M&quot;;
+log.info(str);
+MessageDigest digestFunction = MessageDigest.getInstance(&quot;SHA-1&quot;);
+String nowSign = new BigInteger(1,digestFunction.digest(str.getBytes(Charset.forName(&quot;UTF-8&quot;)))).toString(16).toUpperCase();
+
+while(nowSign.length() &lt; 40){
+	nowSign = &quot;0&quot;+nowSign;
+	log.info(&quot;while:&quot;+nowSign);
+}
+
+vars.put(&quot;nowSign&quot;, nowSign);
+//log.info(&quot;11111111111111&quot;);
+log.info(nowSign);
+
+
+</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="添加商品分类" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="添加商品分类" enabled="false"/>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器(Web)" enabled="true">
               <collectionProp name="HeaderManager.headers">
@@ -1510,7 +1656,7 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="添加实物商品" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="添加实物商品" enabled="false"/>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器(Web)" enabled="true">
               <collectionProp name="HeaderManager.headers">
@@ -1751,7 +1897,7 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="添加虚拟卡券" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="添加虚拟卡券" enabled="false"/>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器(Web)" enabled="true">
               <collectionProp name="HeaderManager.headers">
@@ -1778,7 +1924,7 @@ log.info(nowSign);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(Web)" enabled="true">
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(Web)" enabled="false">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
@@ -1826,11 +1972,85 @@ log.info(nowSign);
 </stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(list)" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">import org.apache.jmeter.config.Arguments;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import java.util.*;
+import java.util.Date;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.nio.charset.Charset;
+
+
+public TreeMap paramSort(Map params){
+        TreeMap map = JSON.parseObject(JSON.toJSONString(params),TreeMap.class);
+		for(String key:map.keySet()){
+            Object param = map.get(key);
+            //List类型
+            if(param instanceof List){
+               String[] strings = JSON.parseObject(param, String[].class);
+			String str = &quot;&quot;;
+			for (int i = 0; i &lt; strings.length; i++) {
+				TreeMap map = JSON.parseObject(strings[i],TreeMap.class);
+				str+=&quot;,&quot;+JSON.toJSONString(map);
+			}
+			param = str.substring(1,str.length());
+            }
+            //Map类型
+            if(param instanceof Map){
+			log.info(&quot;444444&quot;);
+                map.put(key,this.paramSort((Map) param));
+            }else{
+                map.put(key,param);
+            }
+        }
+        return map;
+    }
+
+//获取接口的请求参数
+Date d1 = new Date();
+String timestamp = d1.getTime()+&quot;&quot;;
+vars.put(&quot;timestamp&quot;, timestamp);
+Arguments args = sampler.getArguments();
+
+//转成map,{&quot;&quot;, &quot;请求参数&quot;}
+Map reqMap = args.getArgumentsAsMap();
+String params = reqMap.get(&quot;&quot;).toString();
+Map map1 = JSON.parseObject(params,Map.class);
+log.info(&quot;1111111111111111111111111111111111111111111111111&quot;);
+TreeMap map = paramSort(map1);
+String str = &quot;&quot;;
+for(String key:map.keySet()){
+	str += key + &quot;=&quot; + map.get(key) + &quot;&amp;&quot;;
+}
+str += &quot;timestamp=&quot;+timestamp+&quot;&amp;key=b0pDTrrfEn7zhnnLVRjmQG1pUzMrNt1M&quot;;
+log.info(str);
+MessageDigest digestFunction = MessageDigest.getInstance(&quot;SHA-1&quot;);
+String nowSign = new BigInteger(1,digestFunction.digest(str.getBytes(Charset.forName(&quot;UTF-8&quot;)))).toString(16).toUpperCase();
+
+while(nowSign.length() &lt; 40){
+	nowSign = &quot;0&quot;+nowSign;
+	log.info(&quot;while:&quot;+nowSign);
+}
+
+vars.put(&quot;nowSign&quot;, nowSign);
+//log.info(&quot;11111111111111&quot;);
+log.info(nowSign);
+
+
+</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="上传商品图片" enabled="true">
               <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
                 <collectionProp name="HTTPFileArgs.files">
-                  <elementProp name="${image_2}" elementType="HTTPFileArg">
-                    <stringProp name="File.path">${image_2}</stringProp>
+                  <elementProp name="${image_1}" elementType="HTTPFileArg">
+                    <stringProp name="File.path">${image_1}</stringProp>
                     <stringProp name="File.paramname">file</stringProp>
                     <stringProp name="File.mimetype">image/jpeg</stringProp>
                   </elementProp>
@@ -1989,12 +2209,12 @@ log.info(nowSign);
                   <elementProp name="" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">[{&#xd;
-	&quot;couponCoder&quot;: &quot;NWEJOGW63S77DG65S4&quot;,&#xd;
+	&quot;couponCoder&quot;: &quot;NEOGW63S7765S4&quot;,&#xd;
 	&quot;couponStartTime&quot;: &quot;2021-05-20 00:00:00&quot;,&#xd;
 	&quot;couponEndTime&quot;: &quot;2025-06-30 00:00:00&quot;,&#xd;
 	&quot;commodityCoder&quot;: &quot;${code}&quot;&#xd;
 }, {&#xd;
-	&quot;couponCoder&quot;: &quot;SDG46SD4G655WE4G46S5&quot;,&#xd;
+	&quot;couponCoder&quot;: &quot;G46SD4G5WE6S5&quot;,&#xd;
 	&quot;couponStartTime&quot;: &quot;2021-05-20 00:00:00&quot;,&#xd;
 	&quot;couponEndTime&quot;: &quot;2025-06-30 00:00:00&quot;,&#xd;
 	&quot;commodityCoder&quot;: &quot;${code}&quot;&#xd;
@@ -2111,7 +2331,7 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="收货地址" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="收货地址" enabled="false"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询默认地址" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -2576,7 +2796,7 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="兑换实物商品" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="兑换实物商品" enabled="false"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="实物商品列表" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -3275,7 +3495,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待收货列表" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待收货列表" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -3388,7 +3608,7 @@ log.info(nowSign);
               </JSONPostProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询订单" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询订单" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -3517,7 +3737,7 @@ log.info(nowSign);
               </JSONPostProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="处理发货" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="处理发货" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -3620,7 +3840,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="今日金币" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="今日金币" enabled="false">
               <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
                 <collectionProp name="HTTPFileArgs.files">
                   <elementProp name="${image}" elementType="HTTPFileArg">
@@ -3750,7 +3970,7 @@ if(new_totalMoney + 10 != ${old_totalMoney}){
               </BeanShellAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="我的金币" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="我的金币" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -3857,7 +4077,7 @@ log.info(nowSign);
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="实物商品列表" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="实物商品列表" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -3990,7 +4210,7 @@ if(new_inventory + 1 != ${old_inventory}){
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="兑换虚拟卡券" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="兑换虚拟卡券" enabled="false"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="卡券商品列表" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -5278,7 +5498,7 @@ log.info(nowSign);
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例管理" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例管理" enabled="false"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="文章审核失败" enabled="false"/>
           <hashTree>
