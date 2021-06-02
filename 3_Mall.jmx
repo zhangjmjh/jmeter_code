@@ -145,9 +145,9 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="true"/>
         <hashTree>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="登录后台" enabled="false">
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="登录后台" enabled="true">
             <stringProp name="WhileController.condition">${__javaScript(&quot;${msg}&quot;!=&quot;null&quot; &amp;&amp; ${count}!=20)}</stringProp>
           </WhileController>
           <hashTree>
@@ -531,7 +531,7 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改登录密码" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="修改登录密码" enabled="true"/>
           <hashTree>
             <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器(APP)" enabled="true">
               <collectionProp name="HeaderManager.headers">
@@ -2038,7 +2038,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="今日金币" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="今日金币" enabled="false">
               <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
                 <collectionProp name="HTTPFileArgs.files">
                   <elementProp name="${image}" elementType="HTTPFileArg">
@@ -2161,7 +2161,7 @@ log.info(nowSign);
               </JSONPostProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="商城列表" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="商城列表" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2275,7 +2275,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="商品分类列表" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="商品分类列表" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2382,7 +2382,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="实物商品详情" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="实物商品详情" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2489,7 +2489,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="兑换实物商品" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="兑换实物商品" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2596,7 +2596,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待收货列表" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待收货列表" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2709,7 +2709,7 @@ log.info(nowSign);
               </JSONPostProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询订单" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询订单" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -2838,7 +2838,7 @@ log.info(nowSign);
               </JSONPostProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="处理发货" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="处理发货" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -2941,7 +2941,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="今日金币" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="今日金币" enabled="false">
               <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
                 <collectionProp name="HTTPFileArgs.files">
                   <elementProp name="${image}" elementType="HTTPFileArg">
@@ -3075,7 +3075,7 @@ if(new_totalMoney + 500 != ${old_totalMoney}){
               </ConstantTimer>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="APP实物详情" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="APP实物详情" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -4861,7 +4861,7 @@ log.info(nowSign);
         </hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例管理" enabled="true"/>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="兑换数量大于库存" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="兑换数量大于库存" enabled="true"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="实物商品列表" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -5310,7 +5310,7 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="余额不足兑换失败" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="金币不足兑换失败" enabled="true"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加实物商品" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -5679,7 +5679,7 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="禁用商品兑换失败" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="禁用商品后兑换失败" enabled="true"/>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="禁用商品" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
@@ -5893,38 +5893,75 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账户禁用后兑换失败" enabled="false"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账户禁用后兑换失败" enabled="true"/>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器(Web)" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="content-type" elementType="Header">
-                  <stringProp name="Header.name">content-type</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
-                </elementProp>
-                <elementProp name="versionName" elementType="Header">
-                  <stringProp name="Header.name">versionName</stringProp>
-                  <stringProp name="Header.value">1.3.0</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">systemtype</stringProp>
-                  <stringProp name="Header.value">WEB</stringProp>
-                </elementProp>
-                <elementProp name="sign" elementType="Header">
-                  <stringProp name="Header.name">sign</stringProp>
-                  <stringProp name="Header.value">${nowSign}</stringProp>
-                </elementProp>
-                <elementProp name="timestamp" elementType="Header">
-                  <stringProp name="Header.name">timestamp</stringProp>
-                  <stringProp name="Header.value">${timestamp}</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(Web)" enabled="true">
-              <boolProp name="resetInterpreter">false</boolProp>
-              <stringProp name="parameters"></stringProp>
-              <stringProp name="filename"></stringProp>
-              <stringProp name="script">import org.apache.jmeter.config.Arguments;
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="禁用" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;id&quot;:${id},&quot;enable&quot;:1}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">${admin}/user/headlineUser/userEnable</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.implementation">Java</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1032568230">&quot;status&quot;:0,&quot;msg&quot;:null</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message">禁用</stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器(Web)" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="versionName" elementType="Header">
+                    <stringProp name="Header.name">versionName</stringProp>
+                    <stringProp name="Header.value">1.3.0</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">systemtype</stringProp>
+                    <stringProp name="Header.value">WEB</stringProp>
+                  </elementProp>
+                  <elementProp name="sign" elementType="Header">
+                    <stringProp name="Header.name">sign</stringProp>
+                    <stringProp name="Header.value">${nowSign}</stringProp>
+                  </elementProp>
+                  <elementProp name="timestamp" elementType="Header">
+                    <stringProp name="Header.name">timestamp</stringProp>
+                    <stringProp name="Header.value">${timestamp}</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(Web)" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.apache.jmeter.config.Arguments;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -5966,18 +6003,10 @@ vars.put(&quot;nowSign&quot;, nowSign);
 log.info(&quot;11111111111111&quot;);
 log.info(nowSign);
 </stringProp>
-            </BeanShellPreProcessor>
-            <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="上传小视频" enabled="true">
-              <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
-                <collectionProp name="HTTPFileArgs.files">
-                  <elementProp name="${video}" elementType="HTTPFileArg">
-                    <stringProp name="File.path">${video}</stringProp>
-                    <stringProp name="File.paramname">file</stringProp>
-                    <stringProp name="File.mimetype">video/mp4</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="兑换实物商品" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -5985,111 +6014,7 @@ log.info(nowSign);
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${health}/file/fileAccess/createUploadVideo?fileName=MP4.mp4&amp;title=MP4.mp4</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-386976367">&quot;status&quot;:0,&quot;msg&quot;:&quot;获取成功&quot;</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message">上传视频失败</stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取 videoId" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">videoId</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.videoId</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="上传封面" enabled="true">
-              <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
-                <collectionProp name="HTTPFileArgs.files">
-                  <elementProp name="${image}" elementType="HTTPFileArg">
-                    <stringProp name="File.path">${image}</stringProp>
-                    <stringProp name="File.paramname">file</stringProp>
-                    <stringProp name="File.mimetype">image/png</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${health}/file/file/uploadfile</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.implementation">Java</stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-228104486">&quot;status&quot;:0,&quot;msg&quot;:&quot;上传成功&quot;</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message">上传图片失败</stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="提取coverPictureUrl" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">coverPictureUrl</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                <stringProp name="ConstantTimer.delay">500</stringProp>
-              </ConstantTimer>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="发布小视频" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-	&quot;id&quot;: &quot;&quot;,&#xd;
-	&quot;title&quot;: &quot;健康头条：新研究发现冠状病毒致命弱点&quot;,&#xd;
-	&quot;description&quot;: &quot;据《科学》杂志13日在线发布的一篇最新论文，来自瑞士苏黎世理工大学、伯尔尼大学、洛桑大学和来自爱尔兰的科克大学组成的一支研究团队找到了包括新冠病毒在内的冠状病毒的“致命弱点”。研究首次成功揭示了病毒基因组和核糖体在“移码”过程中的相互作用，发现病毒对核糖体“移码”过程存在“精细控制”，这有望促进通过干扰“移码”过程而抑制病毒复制的药物的开发。&quot;,&#xd;
-	&quot;tags&quot;: &quot;健康&quot;,&#xd;
-	&quot;coverPictureUrl&quot;: &quot;${coverPictureUrl}&quot;,&#xd;
-	&quot;videoFile&quot;: &quot;${videoId}&quot;,&#xd;
-	&quot;status&quot;: 0,&#xd;
-	&quot;category&quot;: 1,&#xd;
-	&quot;videoType&quot;: 1,&#xd;
-	&quot;resourcesType&quot;: 1&#xd;
-}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${health}/video/video/addVideo</stringProp>
+              <stringProp name="HTTPSampler.path">${app}/gold/commodityOrder/createOrder?buyNumber=1&amp;commodityCoder=${commodity_code}&amp;recipientsName=${userName}&amp;recipientsPhone=${phoneNumber}&amp;recipientsSite=797/855/856/锦上花园5栋A单元</stringProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -6098,11 +6023,12 @@ log.info(nowSign);
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
               <stringProp name="HTTPSampler.connect_timeout"></stringProp>
               <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">${commodity_code}</stringProp>
             </HTTPSamplerProxy>
             <hashTree>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                 <collectionProp name="Asserion.test_strings">
-                  <stringProp name="913865738">&quot;status&quot;:0,&quot;msg&quot;:&quot;视频保存成功&quot;</stringProp>
+                  <stringProp name="1632078382">&quot;code&quot;:1001,&quot;message&quot;:&quot;您的账号异常，不可兑换商品，请至[我的]-[用户反馈]联系平台客服&quot;</stringProp>
                 </collectionProp>
                 <stringProp name="Assertion.custom_message"></stringProp>
                 <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -6110,294 +6036,82 @@ log.info(nowSign);
                 <intProp name="Assertion.test_type">16</intProp>
               </ResponseAssertion>
               <hashTree/>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                <stringProp name="ConstantTimer.delay">500</stringProp>
-              </ConstantTimer>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="待审核小视频列表" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-	&quot;category&quot;: 1,&#xd;
-	&quot;videoType&quot;: 1,&#xd;
-	&quot;resourcesType&quot;: 1,&#xd;
-	&quot;title&quot;: &quot;健康头条：新研究发现冠状病毒致命弱点&quot;,&#xd;
-	&quot;publish_name&quot;: &quot;${userName}&quot;,&#xd;
-	&quot;updateName&quot;: &quot;&quot;,&#xd;
-	&quot;statusReview&quot;: &quot;0&quot;,&#xd;
-	&quot;status&quot;: &quot;&quot;,&#xd;
-	&quot;startDate&quot;: &quot;&quot;,&#xd;
-	&quot;endDate&quot;: &quot;&quot;,&#xd;
-	&quot;pageNum&quot;: 1,&#xd;
-	&quot;pageSize&quot;: 10,&#xd;
-	&quot;menuId&quot;: 62&#xd;
-}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器(APP)" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="content-type" elementType="Header">
+                    <stringProp name="Header.name">content-type</stringProp>
+                    <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                  </elementProp>
+                  <elementProp name="versionName" elementType="Header">
+                    <stringProp name="Header.name">versionName</stringProp>
+                    <stringProp name="Header.value">1.3.0</stringProp>
+                  </elementProp>
+                  <elementProp name="sign" elementType="Header">
+                    <stringProp name="Header.name">sign</stringProp>
+                    <stringProp name="Header.value">${nowSign}</stringProp>
+                  </elementProp>
+                  <elementProp name="systemType" elementType="Header">
+                    <stringProp name="Header.name">systemType</stringProp>
+                    <stringProp name="Header.value">ANDROID</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">${token}</stringProp>
+                  </elementProp>
+                  <elementProp name="timestamp" elementType="Header">
+                    <stringProp name="Header.name">timestamp</stringProp>
+                    <stringProp name="Header.value">${timestamp}</stringProp>
                   </elementProp>
                 </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${admin}/article/search/list</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="2121102134">&quot;total&quot;:0</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">20</intProp>
-              </ResponseAssertion>
+              </HeaderManager>
               <hashTree/>
-              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON提取 micro_video_id" enabled="true">
-                <stringProp name="JSONPostProcessor.referenceNames">micro_video_id</stringProp>
-                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.data.list[0].id</stringProp>
-                <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-              </JSONPostProcessor>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="审核不通过" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-	&quot;id&quot;: &quot;${micro_video_id}&quot;,&#xd;
-	&quot;remark&quot;: &quot;小视频审核不通过&quot;,&#xd;
-	&quot;statusReview&quot;: 2&#xd;
-}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${admin}/video/video/reviewVideo</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-596318898">&quot;status&quot;:0,&quot;msg&quot;:&quot;点击成功&quot;</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                <stringProp name="ConstantTimer.delay">500</stringProp>
-              </ConstantTimer>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="小视频列表" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-	&quot;category&quot;: 1,&#xd;
-	&quot;endDate&quot;: &quot;&quot;,&#xd;
-	&quot;pageNum&quot;: 1,&#xd;
-	&quot;pageSize&quot;: 10,&#xd;
-	&quot;startDate&quot;: &quot;&quot;,&#xd;
-	&quot;status&quot;: &quot;&quot;,&#xd;
-	&quot;statusReview&quot;: -1,&#xd;
-	&quot;terms&quot;: &quot;&quot;,&#xd;
-	&quot;videoType&quot;: 1,&#xd;
-	&quot;type&quot;: -1&#xd;
-}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${health}/article/contentManager/queryAll</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-437532593">&quot;statusReview&quot;:3</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                <stringProp name="ConstantTimer.delay">500</stringProp>
-              </ConstantTimer>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="复审不通过" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-	&quot;id&quot;: &quot;${micro_video_id}&quot;,&#xd;
-	&quot;remark&quot;: &quot;复审不通过&quot;,&#xd;
-	&quot;statusReview&quot;: 2&#xd;
-}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${admin}/video/video/recheckVideo</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-596318898">&quot;status&quot;:0,&quot;msg&quot;:&quot;点击成功&quot;</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                <stringProp name="ConstantTimer.delay">500</stringProp>
-              </ConstantTimer>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="小视频列表" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
-	&quot;category&quot;: 1,&#xd;
-	&quot;endDate&quot;: &quot;&quot;,&#xd;
-	&quot;pageNum&quot;: 1,&#xd;
-	&quot;pageSize&quot;: 10,&#xd;
-	&quot;startDate&quot;: &quot;&quot;,&#xd;
-	&quot;status&quot;: &quot;&quot;,&#xd;
-	&quot;statusReview&quot;: -1,&#xd;
-	&quot;terms&quot;: &quot;&quot;,&#xd;
-	&quot;videoType&quot;: 1,&#xd;
-	&quot;type&quot;: -1&#xd;
-}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${health}/article/contentManager/queryAll</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-437532594">&quot;statusReview&quot;:2</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                <stringProp name="ConstantTimer.delay">500</stringProp>
-              </ConstantTimer>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="删除小视频" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">${health}/video/video/delVideo?id=${micro_video_id}</stringProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="131821697">&quot;status&quot;:0,&quot;msg&quot;:&quot;删除视频成功&quot;</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.custom_message"></stringProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                <stringProp name="ConstantTimer.delay">500</stringProp>
-              </ConstantTimer>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(APP)" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.apache.jmeter.config.Arguments;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import java.util.*;
+import java.util.Date;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.nio.charset.Charset;
+
+
+
+//获取接口的请求参数
+Date d1 = new Date();
+String timestamp = d1.getTime()+&quot;&quot;;
+vars.put(&quot;timestamp&quot;, timestamp);
+Arguments args = sampler.getArguments();
+
+
+
+//转成map,{&quot;&quot;, &quot;请求参数&quot;}
+Map reqMap = args.getArgumentsAsMap();
+String params = reqMap.get(&quot;&quot;).toString();
+TreeMap map = JSON.parseObject(params,TreeMap.class);
+String str = &quot;&quot;;
+for(String key:map.keySet()){
+	str += key + &quot;=&quot; + map.get(key) + &quot;&amp;&quot;;
+}
+str += &quot;timestamp=&quot;+timestamp+&quot;&amp;key=JQz80G8xBQblioVgpD7kYbNWEmRgFpCi&quot;;
+log.info(str);
+MessageDigest digestFunction = MessageDigest.getInstance(&quot;SHA-1&quot;);
+String nowSign = new BigInteger(1,digestFunction.digest(str.getBytes(Charset.forName(&quot;UTF-8&quot;)))).toString(16).toUpperCase();
+
+while(nowSign.length() &lt; 40){
+	nowSign = &quot;0&quot;+nowSign;
+	log.info(&quot;while:&quot;+nowSign);
+}
+
+vars.put(&quot;nowSign&quot;, nowSign);
+log.info(&quot;11111111111111&quot;);
+log.info(nowSign);
+</stringProp>
+              </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
           </hashTree>
@@ -7666,9 +7380,9 @@ log.info(nowSign);
               <hashTree/>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注销账号" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注销账号" enabled="false"/>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询现有金币" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查询现有金币" enabled="false">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -7698,7 +7412,7 @@ log.info(nowSign);
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="content-type" elementType="Header">
                     <stringProp name="Header.name">content-type</stringProp>
-                    <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
                   </elementProp>
                   <elementProp name="versionName" elementType="Header">
                     <stringProp name="Header.name">versionName</stringProp>
@@ -7774,54 +7488,107 @@ log.info(nowSign);
 </stringProp>
               </BeanShellPreProcessor>
               <hashTree/>
-              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 预处理程序" enabled="true">
-                <stringProp name="cacheKey">true</stringProp>
-                <stringProp name="filename"></stringProp>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell 预处理程序(APP)" enabled="false">
+                <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
                 <stringProp name="script">import org.apache.jmeter.config.Arguments;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import java.util.*;
 import java.util.Date;
-import time
-import hashlib
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.nio.charset.Charset;
 
 
 Arguments args = sampler.getArguments();
 Map reqMap = args.getArgumentsAsMap();
 
 String params = reqMap.get(&quot;&quot;).toString();
-log.info(&quot;1111111111111111111111111111&quot;);
+log.info(&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;);
 log.info(params);
+vars.put(&quot;params&quot;,params);</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 预处理程序" enabled="false">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">import time
+import hashlib
+import sys
+reload(sys)
+sys.setdefaultencoding(&apos;utf-8&apos;)
+
+params = ${__property(params)}
 
 
-ts = time.time()
-timestamp = int(ts)
-print(timestamp)
+def test(params):
+	data = {&quot;firstChannelId&quot;:2,&quot;firstChannelName&quot;:&quot;推荐&quot;,&quot;pageNum&quot;:1,&quot;pageSize&quot;:24,&quot;imei&quot;:&quot;046778186782e35f&quot;,&quot;provinceId&quot;:&quot;&quot;,&quot;userPageSize&quot;:20,&quot;deviceType&quot;:2}
+	data[&apos;firstChannelName&apos;] = data[&apos;firstChannelName&apos;].decode(&apos;utf-8&apos;)
+	
+	ts = time.time() * 1000
+	timestamp = ts
+	
+	sign = &quot;&amp;&quot;.join(sorted([str(key)+&quot;=&quot;+str(value) for key, value in params.items()]))
+	nowSign = sign + &quot;&amp;&quot; + &quot;timestamp=&quot; + str(timestamp) + &quot;&amp;&quot; + &quot;key=b0pDTrrfEn7zhnnLVRjmQG1pUzMrNt1M&quot;
+	print(timestamp,nowSign)
+	return timestamp,nowSign
+test(params)
 
-
-
-new_res = &quot;&amp;&quot;.join(sorted([str(key)+&quot;=&quot;+str(value) for key, value in params.items()]))
-print(new_res)
-
-sign = new_res + &quot;&amp;&quot; + &quot;timestamp=&quot; + str(timestamp) + &quot;&amp;&quot; + &quot;key=b0pDTrrfEn7zhnnLVRjmQG1pUzMrNt1M&quot;
-print(sign)
-
-new_sing = hashlib.sha1(sign.encode(&quot;utf8&quot;)).hexdigest()
-print(new_sing)
-
-vars.put(&quot;new_sing&quot;, new_sing);
-log.info(&quot;11111111111111&quot;);
-log.info(new_sing);
+vars.put(&quot;timestamp&quot;, timestamp);
+vars.put(&quot;nowSign&quot;, nowSign);
 </stringProp>
                 <stringProp name="scriptLanguage">jython</stringProp>
               </JSR223PreProcessor>
               <hashTree/>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 预处理程序" enabled="false">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">import time
+import hashlib
+import org.apache.jmeter.config.Arguments;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import java.util.*;
+import java.util.Date;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.nio.charset.Charset;
+
+Date d1 = new Date();
+String timestamp = d1.getTime()+&quot;&quot;;
+vars.put(&quot;timestamp&quot;, timestamp);
+
+Arguments args = sampler.getArguments();
+Map reqMap = args.getArgumentsAsMap();
+
+String params = reqMap.get(&quot;&quot;).toString();
+log.info(&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;);
+log.info(params);
+vars.put(&quot;params&quot;,params);
+
+//vars.get(&quot;params&quot;);
+
+ts = round(time.time() * 1000)
+timestamp = str(ts)
+
+new_res = &quot;&amp;&quot;.join(sorted([str(key) + &quot;=&quot; + str(value) for key, value in params.items()]))
+
+sign = new_res + &quot;&amp;&quot; + &quot;timestamp=&quot; + str(timestamp) + &quot;&amp;&quot; + &quot;key=b0pDTrrfEn7zhnnLVRjmQG1pUzMrNt1M&quot;
+
+
+new_sign = hashlib.sha1(sign.encode(&quot;utf8&quot;)).hexdigest()
+
+vars.put(&quot;nowSign&quot;, nowSign);</stringProp>
+                <stringProp name="scriptLanguage">jython</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
             </hashTree>
-            <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="${new_sing}" enabled="true">
-              <boolProp name="displayJMeterProperties">false</boolProp>
-              <boolProp name="displayJMeterVariables">true</boolProp>
-              <boolProp name="displaySystemProperties">false</boolProp>
-            </DebugSampler>
-            <hashTree/>
           </hashTree>
         </hashTree>
       </hashTree>
