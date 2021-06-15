@@ -75,13 +75,13 @@
           </elementProp>
           <elementProp name="image_1" elementType="Argument">
             <stringProp name="Argument.name">image_1</stringProp>
-            <stringProp name="Argument.value">D:\jmeter_code\image\180917953.png</stringProp>
+            <stringProp name="Argument.value">D:\api_code\image\180917953.png</stringProp>
             <stringProp name="Argument.desc">虚拟卡券商品图片</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="image_2" elementType="Argument">
             <stringProp name="Argument.name">image_2</stringProp>
-            <stringProp name="Argument.value">D:\jmeter_code\image\143057218.jpg</stringProp>
+            <stringProp name="Argument.value">D:\api_code\image\143057218.jpg</stringProp>
             <stringProp name="Argument.desc">实物商品图片</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -676,7 +676,7 @@ while ((line = in.readLine()) != null) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例" enabled="false"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="添加个人用户" enabled="false"/>
           <hashTree>
@@ -6851,7 +6851,7 @@ log.info(pwd);</stringProp>
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例" enabled="false"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="兑换商品后再取消订单" enabled="false"/>
           <hashTree>

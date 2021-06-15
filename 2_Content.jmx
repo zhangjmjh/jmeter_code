@@ -93,13 +93,13 @@
           </elementProp>
           <elementProp name="image" elementType="Argument">
             <stringProp name="Argument.name">image</stringProp>
-            <stringProp name="Argument.value">D:\jmeter_code\image\aaa.jpg</stringProp>
+            <stringProp name="Argument.value">D:\api_code\image\aaa.jpg</stringProp>
             <stringProp name="Argument.desc">身份认证、视频\小视频封面图</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="video" elementType="Argument">
             <stringProp name="Argument.name">video</stringProp>
-            <stringProp name="Argument.value">‪D:\jmeter_code\image\video.mp4</stringProp>
+            <stringProp name="Argument.value">‪D:\api_code\image\video.mp4</stringProp>
             <stringProp name="Argument.desc">视频、小视频</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -157,7 +157,7 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </SetupThreadGroup>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Mysql--初始化账号" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Mysql--初始化数据库" enabled="false"/>
         <hashTree>
           <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="mysql_health_common" enabled="false">
             <boolProp name="autocommit">true</boolProp>
@@ -688,7 +688,7 @@ while ((line = in.readLine()) != null) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例" enabled="false"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="添加个人用户" enabled="false"/>
           <hashTree>
@@ -11555,7 +11555,7 @@ log.info(nowSign);
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例" enabled="false"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="文章审核失败" enabled="true"/>
           <hashTree>

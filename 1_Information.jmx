@@ -20,8 +20,8 @@
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="全局变量" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="" elementType="Argument">
-            <stringProp name="Argument.name"></stringProp>
+          <elementProp name="app" elementType="Argument">
+            <stringProp name="Argument.name">app</stringProp>
             <stringProp name="Argument.value">https://zixun.001pt.com</stringProp>
             <stringProp name="Argument.desc">APP</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
@@ -50,8 +50,8 @@
             <stringProp name="Argument.desc">人脸识别</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="app" elementType="Argument">
-            <stringProp name="Argument.name">app</stringProp>
+          <elementProp name="" elementType="Argument">
+            <stringProp name="Argument.name"></stringProp>
             <stringProp name="Argument.value">https://app-connect.jk-tt.com</stringProp>
             <stringProp name="Argument.desc">APP--线上环境</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
@@ -112,13 +112,13 @@
           </elementProp>
           <elementProp name="image" elementType="Argument">
             <stringProp name="Argument.name">image</stringProp>
-            <stringProp name="Argument.value">D:\jmeter_code\image\aaa.jpg</stringProp>
+            <stringProp name="Argument.value">D:\api_code\image\aaa.jpg</stringProp>
             <stringProp name="Argument.desc">背景图、头像、营业执照、认证申请公函、身份证正反面</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="icon" elementType="Argument">
             <stringProp name="Argument.name">icon</stringProp>
-            <stringProp name="Argument.value">D:\jmeter_code\image\1313654.png</stringProp>
+            <stringProp name="Argument.value">D:\api_code\image\1313654.png</stringProp>
             <stringProp name="Argument.desc">小icon</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -742,7 +742,7 @@ while ((line = in.readLine()) != null) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例管理" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例" enabled="true"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注册企业用户" enabled="false"/>
           <hashTree>
@@ -7224,7 +7224,7 @@ log.info(nowSign);
           </hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="兴趣认证审核通过" enabled="false"/>
           <hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="造发文量和阅读数" enabled="false"/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="造发文量和阅读数" enabled="true"/>
             <hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="发布微健康" enabled="true">
                 <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -7902,7 +7902,7 @@ log.info(nowSign);
               </JDBCSampler>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查看所有一级领域" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查看所有一级领域" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -8015,7 +8015,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查看所有二级领域" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="查看所有二级领域" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -8135,7 +8135,7 @@ log.info(nowSign);
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="提交兴趣认证" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="提交兴趣认证" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                 <collectionProp name="Arguments.arguments">
@@ -11300,7 +11300,7 @@ log.info(nowSign);
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="异常场景用例" enabled="false"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账号禁用无法修改资料" enabled="false"/>
           <hashTree>
