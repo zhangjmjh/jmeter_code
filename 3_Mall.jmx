@@ -145,7 +145,7 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </SetupThreadGroup>
       <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Mysql--初始化账号" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Mysql--初始化数据库" enabled="false"/>
         <hashTree>
           <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="mysql_health_common" enabled="false">
             <boolProp name="autocommit">true</boolProp>
