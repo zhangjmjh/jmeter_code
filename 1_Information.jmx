@@ -684,11 +684,11 @@ Date d1 = new Date();
 SimpleDateFormat sdf4 = new SimpleDateFormat(&quot;MMdd-HHmmss&quot;);
 String image_date = sdf4.format(d1);
 byte[] response_date = prev.getResponseData();
-OutputStream os = new FileOutputStream(&quot;D:\\jmeter_code\\imageCodes\\&quot;+image_date+&quot;.jpg&quot;);
+OutputStream os = new FileOutputStream(&quot;D:\\api_code\\imageCodes\\&quot;+image_date+&quot;.jpg&quot;);
 os.write(response_date, 0, response_date.length);
 os.flush();
 os.close();
-String[] str = new String[]{&quot;python&quot;,&quot;D:\\jmeter_code\\get_imageCode.py&quot;,image_date};
+String[] str = new String[]{&quot;python&quot;,&quot;D:\\api_code\\get_imageCode.py&quot;,image_date};
 Process pr = Runtime.getRuntime().exec(str);	
 BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 String line = &quot;&quot;;
@@ -742,7 +742,7 @@ while ((line = in.readLine()) != null) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="正向场景用例" enabled="false"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注册企业用户" enabled="false"/>
           <hashTree>
